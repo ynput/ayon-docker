@@ -39,7 +39,7 @@ endif
 	@$(COMPOSE) exec $(SERVER_CONTAINER) ./reload.sh
 
 dbshell:
-	@$(COMPOSE) exec postgres psql -U pypeusr pype
+	@$(COMPOSE) exec postgres psql -U ayon ayon
 
 reload:
 	@$(COMPOSE) exec $(SERVER_CONTAINER) ./reload.sh

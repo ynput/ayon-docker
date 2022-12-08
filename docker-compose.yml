@@ -5,9 +5,9 @@ services:
     expose:
       - 5432
     environment:
-      - "POSTGRES_USER=pypeusr"
-      - "POSTGRES_PASSWORD=pypepass"
-      - "POSTGRES_DB=pype"
+      - "POSTGRES_USER=ayon"
+      - "POSTGRES_PASSWORD=ayon"
+      - "POSTGRES_DB=ayon"
     volumes:
       - db:/var/lib/postgresql/data
     restart: unless-stopped
@@ -30,6 +30,7 @@ services:
       - redis
       - postgres
     environment:
+      - "AYON_POSTGRES_URL=postgres://ayon:ayon@postgres/ayon"
       - "AYON_DISCORD_CLIENT_ID=${AYON_DISCORD_CLIENT_ID-}"
       - "AYON_DISCORD_CLIENT_SECRET=${AYON_DISCORD_CLIENT_SECRET-}"
       - "AYON_GOOGLE_CLIENT_ID=${AYON_GOOGLE_CLIENT_ID-}"
