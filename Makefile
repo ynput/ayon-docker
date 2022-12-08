@@ -45,7 +45,7 @@ reload:
 	@$(COMPOSE) exec $(SERVER_CONTAINER) ./reload.sh
 
 demo:
-	$(foreach file, $(wildcard demo/*.json), docker-compose exec -T $(SERVER_CONTAINER) python -m demogen < $(file);)
+	$(foreach file, $(wildcard demo/*.json), $(COMPOSE) exec -T $(SERVER_CONTAINER) python -m demogen < $(file);)
  
 #
 # The following targets are for development purposes only.

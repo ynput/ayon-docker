@@ -28,6 +28,7 @@ COPY ./backend/setup /backend/setup
 COPY ./backend/static /backend/static
 COPY ./backend/pyproject.toml /backend/pyproject.toml
 COPY ./backend/start.sh /backend/start.sh
+COPY ./backend/reload.sh /backend/reload.sh
 
 COPY --from=build /frontend/dist/ /frontend
 
