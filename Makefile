@@ -6,7 +6,7 @@ TAG=$(shell cd backend/ && git describe --tags --always --dirty)
 COMPOSE=$(shell which docker-compose || echo "docker compose")
 SETUP_CMD=$(COMPOSE) exec -T $(SERVER_CONTAINER) python -m setup
 
-.PHONY: backend frontend build
+.PHONY: backend frontend build demo
 
 default:
 	@echo ""
@@ -16,9 +16,9 @@ default:
 	@echo ""
 	@echo "Runtime targets:"
 	@echo "  setup     Apply settings tempate form the settings/template.json"
-	@echo "  demo      Create demo projects based on settings in demo directory"
 	@echo "  dbshell   Open a PostgreSQL shell"
 	@echo "  reload    Reload the running server"
+	@echo "  demo      Create demo projects based on settings in demo directory"
 	@echo ""
 	@echo "Development:"
 	@echo "  backend   Download / update backend"
@@ -44,6 +44,9 @@ dbshell:
 reload:
 	@$(COMPOSE) exec $(SERVER_CONTAINER) ./reload.sh
 
+demo:
+	$(foreach file, $(wildcard demo/*.json), docker-compose exec -T $(SERVER_CONTAINER) python -m demogen < $(file);)
+ 
 #
 # The following targets are for development purposes only.
 #
