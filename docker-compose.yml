@@ -9,7 +9,8 @@ services:
       - "POSTGRES_PASSWORD=ayon"
       - "POSTGRES_DB=ayon"
     volumes:
-      - db:/var/lib/postgresql/data
+      - "/etc/localtime:/etc/localtime:ro"
+      - "db:/var/lib/postgresql/data"
     restart: unless-stopped
 
   redis:
@@ -22,6 +23,7 @@ services:
     image: ynput/ayon:latest
     restart: unless-stopped
     volumes:
+      - "/etc/localtime:/etc/localtime:ro"
       - "./addons:/addons"
       - "./backend:/backend"
     ports:
