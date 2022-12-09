@@ -1,12 +1,25 @@
+#
+# Settings
+#
+
 SETTINGS_FILE=settings/template.json
 IMAGE_NAME=ynput/ayon
 SERVER_CONTAINER=server
 
+#
+# Variables
+#
+
+# TODO: tag needs to be set to the current version. TBD.
 TAG=$(shell cd backend/ && git describe --tags --always --dirty)
+
+# Abstract the 'docker compose' / 'docker-compose' command
 COMPOSE=$(shell which docker-compose || echo "docker compose")
+
+# Shortcut for the setup command
 SETUP_CMD=$(COMPOSE) exec -T $(SERVER_CONTAINER) python -m setup
 
-.PHONY: backend frontend build demo
+# By default, just show the usage message
 
 default:
 	@echo ""
@@ -26,6 +39,9 @@ default:
 	@echo "  build     Build docker image"
 	@echo "  dist      Publish docker image to docker hub"
 	
+
+.PHONY: backend frontend build demo
+
 # Makefile syntax, oh so bad
 # Errors abound, frustration high
 # Gotta love makefiles
@@ -61,10 +77,10 @@ dist: build
 
 backend:
 	# Clone / update the backend repository
-	@[ -d $@ ] || git clone https://github.com/pypeclub/openpype4-backend $@
+	@[ -d $@ ] || git clone https://github.com/pypeclub/ayon-backend $@
 	@cd $@ && git pull
 
 frontend:
 	# Clone / update the frontend repository
-	@[ -d $@ ] || git clone https://github.com/pypeclub/openpype4-frontend $@
+	@[ -d $@ ] || git clone https://github.com/pypeclub/ayon-frontend $@
 	@cd $@ && git pull
