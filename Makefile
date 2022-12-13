@@ -62,25 +62,29 @@ reload:
 
 demo:
 	$(foreach file, $(wildcard demo/*.json), $(COMPOSE) exec -T $(SERVER_CONTAINER) python -m demogen < $(file);)
+
+update:
+	docker pull $(IMAGE_NAME)
+	$(COMPOSE) up --detach --build $(SERVER_CONTAINER)
  
 #
 # The following targets are for development purposes only.
 #
 
 build: backend frontend
-	# Build the docker image
+	@# Build the docker image
 	docker build -t $(IMAGE_NAME):$(TAG) -t $(IMAGE_NAME):latest .
 
 dist: build
-	# Publish the docker image to the registry
+	@# Publish the docker image to the registry
 	docker push $(IMAGE_NAME):$(TAG) && docker push $(IMAGE_NAME):latest
 
 backend:
-	# Clone / update the backend repository
+	@# Clone / update the backend repository
 	@[ -d $@ ] || git clone https://github.com/pypeclub/ayon-backend $@
 	@cd $@ && git pull
 
 frontend:
-	# Clone / update the frontend repository
+	@# Clone / update the frontend repository
 	@[ -d $@ ] || git clone https://github.com/pypeclub/ayon-frontend $@
 	@cd $@ && git pull
