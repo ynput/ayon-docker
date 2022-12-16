@@ -1,52 +1,50 @@
+#
+# Build frontend
+#
+
 FROM node:latest AS build
 
 RUN mkdir /frontend
+WORKDIR /frontend
 
 COPY ./frontend/index.html /frontend/index.html
-COPY ./frontend/package.json /frontend/package.json
 COPY ./frontend/vite.config.js /frontend/vite.config.js
-COPY ./frontend/src /frontend/src
 COPY ./frontend/public /frontend/public
+COPY ./frontend/package.json /frontend/package.json
 
-WORKDIR /frontend
-RUN yarn install && yarn build
+RUN yarn install
+COPY ./frontend/src /frontend/src
+RUN yarn build
 
+
+#
+# Main container
+#
 
 FROM python:3.10
-
 ENV PYTHONBUFFERED=1
 
-RUN pip install -U pip
-RUN pip install poetry
 RUN mkdir /backend
-
-COPY ./backend/api /backend/api
-COPY ./backend/demogen /backend/demogen
-COPY ./backend/openpype /backend/openpype
-COPY ./backend/schemas /backend/schemas
-COPY ./backend/setup /backend/setup
-COPY ./backend/static /backend/static
-COPY ./backend/pyproject.toml /backend/pyproject.toml
-COPY ./backend/start.sh /backend/start.sh
-COPY ./backend/reload.sh /backend/reload.sh
-
-COPY --from=build /frontend/dist/ /frontend
-
 WORKDIR /backend
 
-RUN poetry config virtualenvs.create false \
-&& poetry install --no-interaction --no-ansi
+COPY ./backend/pyproject.toml /backend/pyproject.toml
 
-# COPY [ \
-#   "./backend/api", \
-#   "./backend/demogen", \
-#   "./backend/openpype", \
-#   "./backend/schemas", \
-#   "./backend/setup", \
-#   "./backend/static", \
-#   "./backend/pyproject.toml", \
-#   "./backend/start.sh", \
-#   "/backend/" \
-# ]
+RUN \
+  pip install -U pip && \
+  pip install poetry && \
+  poetry config virtualenvs.create false && \
+  poetry install --no-interaction --no-ansi
+
+COPY ./backend/static /backend/static
+COPY ./backend/start.sh /backend/start.sh
+COPY ./backend/reload.sh /backend/reload.sh
+COPY ./backend/demogen /backend/demogen
+COPY ./backend/setup /backend/setup
+
+COPY ./backend/schemas /backend/schemas
+COPY ./backend/openpype /backend/openpype
+COPY ./backend/api /backend/api
+
+COPY --from=build /frontend/dist/ /frontend
 
 ENTRYPOINT ./start.sh
