@@ -47,4 +47,4 @@ COPY ./backend/api /backend/api
 
 COPY --from=build /frontend/dist/ /frontend
 
-ENTRYPOINT ./start.sh
+ENTRYPOINT /backend/start.sh
