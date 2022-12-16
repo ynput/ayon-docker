@@ -28,7 +28,7 @@ default:
 	@echo "Usage: make [target]"
 	@echo ""
 	@echo "Runtime targets:"
-	@echo "  setup     Apply settings tempate form the settings/template.json"
+	@echo "  setup     Apply settings template form the settings/template.json"
 	@echo "  dbshell   Open a PostgreSQL shell"
 	@echo "  reload    Reload the running server"
 	@echo "  demo      Create demo projects based on settings in demo directory"
