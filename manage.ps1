@@ -45,7 +45,7 @@ function setup {
   if (!(Test-Path "$($SCRIPT_DIR)/settings/template.json")) {
     & "$($COMPOSE)" exec -T "$($SERVER_CONTAINER)" python -m setup
   } else {
-    Get-Content "$($SCRIPT_DIR)/settings/template.json" | & "$($COMPOSE)" exec -T "$($SERVER_CONTAINER)" python -m setup
+    Get-Content "$($SCRIPT_DIR)/settings/template.json" | & "$($COMPOSE)" exec -T "$($SERVER_CONTAINER)" python -m setup -
   }
   & "$($COMPOSE)" exec "$($SERVER_CONTAINER)" bash "/backend/reload.sh"
 }
