@@ -42,7 +42,7 @@ COPY ./backend/demogen /backend/demogen
 COPY ./backend/setup /backend/setup
 
 COPY ./backend/schemas /backend/schemas
-COPY ./backend/openpype /backend/openpype
+COPY ./backend/ayon_server /backend/ayon_server
 COPY ./backend/api /backend/api
 
 COPY --from=build /frontend/dist/ /frontend
