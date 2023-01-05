@@ -81,10 +81,10 @@ dist: build
 
 backend:
 	@# Clone / update the backend repository
-	@[ -d $@ ] || git clone https://github.com/pypeclub/ayon-backend $@
+	@[ -d $@ ] || git clone https://github.com/ynput/ayon-backend $@
 	@cd $@ && git pull
 
 frontend:
 	@# Clone / update the frontend repository
-	@[ -d $@ ] || git clone https://github.com/pypeclub/ayon-frontend $@
+	@[ -d $@ ] || git clone https://github.com/ynput/ayon-frontend $@
 	@cd $@ && git pull
