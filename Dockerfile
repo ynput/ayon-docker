@@ -21,7 +21,7 @@ RUN yarn build
 # Main container
 #
 
-FROM python:3.10
+FROM python:3.11
 ENV PYTHONBUFFERED=1
 
 RUN mkdir /backend

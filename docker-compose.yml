@@ -26,6 +26,7 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
       - "./addons:/addons"
       - "./backend:/backend"
+      - "./storage:/storage"
     ports:
       - "5000:5000"
     depends_on:
