@@ -1,3 +1,7 @@
 addons/
 settings/
+storage/
+frontend/node_modules/
+demo/
+settings/
 **/*.pyc
