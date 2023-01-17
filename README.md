@@ -35,7 +35,7 @@ Installation
  - Comment out ` -"./backend:/backend` line in the backend/volumes section
  - Install addons to the `addons` directory
  - Create modify default settings in `settings` directory
- - Run `docker compose up -d`
+ - Run `docker compose up -d` or `docker-compose up -d` (Docker Desktop)
  - Run `make setup`
 
 ### Development setup
