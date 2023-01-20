@@ -36,7 +36,7 @@ Installation
  - Install addons to the `addons` directory
  - Create modify default settings in `settings` directory
  - Run `docker compose up -d` (Unix) or `docker-compose up -d` (Windows)
- - Run `make setup` (Unix) or `manage.ps1` (Windows)
+ - Run `make setup` (Unix) or `manage.ps1 setup` (Windows)
  - http://localhost:5000/ and log in as admin/admin
 
 ## Development setup
@@ -51,6 +51,6 @@ Installation
 
 You can setup a demo which will create 3 project; `demo_Commercial`, `demo_Big_Episodic` and `demo_Big_Feature`.
 
-- `make demo` (Unix) or `manage.ps1` (Windows)
+- `make demo` (Unix) or `manage.ps1 demo` (Windows)
 
 **NOTE: These demo projects can take a while to create.**
