@@ -47,6 +47,9 @@ Installation
  - Install addons to the `addons` directory
  - Run `docker compose up`
 
+## Update
+ - Run `make update` (Unix) or `manage.ps1 update` (Windows)
+
 ## Demo Project
 
 You can setup a demo which will create 3 project; `demo_Commercial`, `demo_Big_Episodic` and `demo_Big_Feature`.
