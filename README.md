@@ -31,12 +31,14 @@ Installation
 ## Production
 
  - Clone this repo
+ - Run `make build` (Unix) or `manage.ps1 build` (Windows)
+ - Run `make setup` (Unix) or `manage.ps1 setup` (Windows)
  - Tweak `docker-compose.yml`
- - Comment out ` -"./backend:/backend` line in the backend/volumes section
+     - (Unix/Windows) Comment out ` -"./backend:/backend` line in the backend/volumes section.
+     - (Windows) Comment out `- "/etc/localtime:/etc/localtime:ro"` in postgress/volumes and server/volumes.
  - Install addons to the `addons` directory
  - Create modify default settings in `settings` directory
  - Run `docker compose up -d` (Unix) or `docker-compose up -d` (Windows)
- - Run `make setup` (Unix) or `manage.ps1 setup` (Windows)
  - http://localhost:5000/ and log in as admin/admin
 
 ## Development setup
