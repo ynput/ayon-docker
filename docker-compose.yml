@@ -23,10 +23,14 @@ services:
     image: ynput/ayon:latest
     restart: unless-stopped
     volumes:
-      - "/etc/localtime:/etc/localtime:ro"
       - "./addons:/addons"
-      - "./backend:/backend"
       - "./storage:/storage"
+      
+      # comment out on windows
+      - "/etc/localtime:/etc/localtime:ro"
+      
+      # uncomment if you need to work on the backend code
+      # - "./backend:/backend"
     ports:
       - "5000:5000"
     depends_on:
