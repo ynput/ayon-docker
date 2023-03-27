@@ -26,10 +26,10 @@ services:
       - "./addons:/addons"
       - "./storage:/storage"
       
-      # comment out on windows
+      # comment out the following line on Windows
       - "/etc/localtime:/etc/localtime:ro"
       
-      # uncomment if you need to work on the backend code
+      # uncomment the following line if you need to work on the backend code
       # - "./backend:/backend"
     ports:
       - "5000:5000"
@@ -42,6 +42,7 @@ services:
       - "AYON_DISCORD_CLIENT_SECRET=${AYON_DISCORD_CLIENT_SECRET-}"
       - "AYON_GOOGLE_CLIENT_ID=${AYON_GOOGLE_CLIENT_ID-}"
       - "AYON_GOOGLE_CLIENT_SECRET=${AYON_GOOGLE_CLIENT_SECRET-}"
+      - "AYON_MOTD_PATH=${AYON_MOTD_PATH-/storage/motd.md}"
 
 volumes:
   db: {}
