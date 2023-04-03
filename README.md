@@ -17,7 +17,7 @@ Features
 Requirements
 ------------
 
-Docker with **compose* plugin. To install the latest Docker, you may use this script: 
+Docker with **compose** plugin. To install the latest Docker, you may use this script: 
 https://get.docker.com
 
 If you use stand-alone `docker-compose` script instead of the compose plugin, 
