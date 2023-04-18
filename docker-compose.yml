@@ -9,8 +9,9 @@ services:
       - "POSTGRES_PASSWORD=ayon"
       - "POSTGRES_DB=ayon"
     volumes:
-      - "/etc/localtime:/etc/localtime:ro"
       - "db:/var/lib/postgresql/data"
+      # comment out the following line on Windows
+      - "/etc/localtime:/etc/localtime:ro"
     restart: unless-stopped
 
   redis:
