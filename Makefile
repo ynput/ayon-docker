@@ -63,6 +63,9 @@ reload:
 demo:
 	$(foreach file, $(wildcard demo/*.json), $(COMPOSE) exec -T $(SERVER_CONTAINER) python -m demogen < $(file);)
 
+links:
+	$(foreach file, $(wildcard demo/*.json), $(COMPOSE) exec -T $(SERVER_CONTAINER) python -m linker < $(file);)
+
 update:
 	docker pull $(IMAGE_NAME)
 	$(COMPOSE) up --detach --build $(SERVER_CONTAINER)

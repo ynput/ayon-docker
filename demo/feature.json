@@ -11,138 +11,138 @@
                     "_children_count": 40,
                     "_children_naming": "starwarsCharacters",
                     "_children": "gen_assets",
-                    "_leaf_subsets": [
+                    "_leaf_products": [
                         {
                             "name": "rigMain", 
-                            "family": "rig",
+                            "product_type": "rig",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "modelMain", 
-                            "family": "model",
+                            "product_type": "model",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.abc"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.abc"
                                 }
                             ]
                         },
                         {
                             "name": "modelProxy", 
-                            "family": "model",
+                            "product_type": "model",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.abc"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.abc"
                                 }
                             ]
                         },
                         {
                             "name": "modelSculpt", 
-                            "family": "model",
+                            "product_type": "model",
                             "_representations": [
                                 {
                                     "name": "obj",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.abc"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.abc"
                                 }
                             ]
                         },
                         {
                             "name": "imageConceptTurnaround", 
-                            "family": "image",
+                            "product_type": "image",
                             "_representations": [
                                 {
                                     "name": "jpg",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.jpg"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.jpg"
                                 },
                                 {
                                     "name": "psd",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.psd"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.psd"
                                 }
                             ]
                         },
                         {
                             "name": "imageConceptPoseSheet", 
-                            "family": "image",
+                            "product_type": "image",
                             "_representations": [
                                 {
                                     "name": "jpg",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.jpg"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.jpg"
                                 },
                                 {
                                     "name": "psd",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.psd"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.psd"
                                 }
                             ]
                         },
                         {
                             "name": "workfileRigging", 
-                            "family": "workfile",
+                            "product_type": "workfile",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "workfileModelling", 
-                            "family": "workfile",
+                            "product_type": "workfile",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "workfileLookdev", 
-                            "family": "workfile",
+                            "product_type": "workfile",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "lookMain", 
-                            "family": "look",
+                            "product_type": "look",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "mtlx",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.mtlx"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.mtlx"
                                 }
                             ]
                         },
                         {
                             "name": "lookWet", 
-                            "family": "look",
+                            "product_type": "look",
                             "_representations": [
                                 {
                                     "name": "mtlx",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.mtlx"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.mtlx"
                                 }
                             ]
                         }
@@ -160,112 +160,112 @@
                     "_children_count": 20,
                     "_children_naming": "cities",
                     "_children": "gen_assets",
-                    "_leaf_subsets" : [
+                    "_leaf_products" : [
                         {
                             "name": "layoutMain", 
-                            "family": "layout",
+                            "product_type": "layout",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "setdressMain", 
-                            "family": "setdress",
+                            "product_type": "setdress",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "usd",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.usd"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.usd"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.abc"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.abc"
                                 }
                             ]
                         },
                         {
                             "name": "lightrigDay", 
-                            "family": "lightrig",
+                            "product_type": "lightrig",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "lightrigNight", 
-                            "family": "lightrig",
+                            "product_type": "lightrig",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "imageConceptDay", 
-                            "family": "image",
+                            "product_type": "image",
                             "_representations": [
                                 {
                                     "name": "jpg",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.jpg"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.jpg"
                                 }
                             ]
                         },
                         {
                             "name": "imageConceptNight", 
-                            "family": "image",
+                            "product_type": "image",
                             "_representations": [
                                 {
                                     "name": "jpg",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.jpg"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.jpg"
                                 }
                             ]
                         },
                         {
                             "name": "workfileLayout", 
-                            "family": "workfile",
+                            "product_type": "workfile",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "workfileSetdress", 
-                            "family": "workfile",
+                            "product_type": "workfile",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "workfileLight_test", 
-                            "family": "workfile",
+                            "product_type": "workfile",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "workfileConcept", 
-                            "family": "workfile",
+                            "product_type": "workfile",
                             "_representations": [
                                 {
                                     "name": "psd",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.psd"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.psd"
                                 }
                             ]
                         }
@@ -282,62 +282,62 @@
                     "_children_count": 100,
                     "_children_naming": "objects",
                     "_children": "gen_assets",
-                    "_leaf_subsets": [
+                    "_leaf_products": [
                         {
                             "name": "modelMain", 
-                            "family": "model",
+                            "product_type": "model",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.abc"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.abc"
                                 }
                             ]
                         },
                         {
                             "name": "workfileModelling", 
-                            "family": "workfile",
+                            "product_type": "workfile",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "workfileLookdev", 
-                            "family": "workfile",
+                            "product_type": "workfile",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 }
                             ]
                         },
                         {
                             "name": "lookMain", 
-                            "family": "look",
+                            "product_type": "look",
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "mtlx",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.mtlx"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.mtlx"
                                 }
                             ]
                         },
                         {
                             "name": "lookWet", 
-                            "family": "look",
+                            "product_type": "look",
                             "_representations": [
                                 {
                                     "name": "mtlx",
-                                    "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.mtlx"
+                                    "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.mtlx"
                                 }
                             ]
                         }
@@ -356,176 +356,176 @@
             "_padding": 4,
             "_children_count": 2000,
             "_children": "gen_shots",
-            "_leaf_subsets": [
+            "_leaf_products": [
                 {
                     "name": "workfileCompositing",
-                    "family": "workfile",
+                    "product_type": "workfile",
                     "_representations": [
                         {
                             "name": "ma",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                         }
                     ]
                 },
                 {
                     "name": "workfileLighting",
-                    "family": "workfile",
+                    "product_type": "workfile",
                     "_representations": [
                         {
                             "name": "ma",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                         }
                     ]
                 },
                 {
                     "name": "animationChar1",
-                    "family": "animation",
+                    "product_type": "animation",
                     "_representations": [
                         {
                             "name": "abc",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.abc"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.abc"
                         },
                         {
                             "name": "anim",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.anim"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.anim"
                         }
                     ]
                 },
                 {
                     "name": "animationChar2",
-                    "family": "animation",
+                    "product_type": "animation",
                     "_representations": [
                         {
                             "name": "abc",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.abc"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.abc"
                         },
                         {
                             "name": "anim",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.anim"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.anim"
                         }
                     ]
                 },
                 {
                     "name": "cameraMain",
-                    "family": "camera",
+                    "product_type": "camera",
                     "_representations": [
                         {
                             "name": "abc",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.abc"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.abc"
                         },
                         {
                             "name": "ma",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.ma"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.ma"
                         }
                     ]
                 },
                 {
                     "name": "vdbcacheFire",
-                    "family": "vdbcache",
+                    "product_type": "vdbcache",
                     "_representations": [
                         {
                             "name": "vdb",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.vdb"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.vdb"
                         }
                     ]
                 },
                 {
                     "name": "reviewAnimation",
-                    "family": "review",
+                    "product_type": "review",
                     "_representations": [
                         {
                             "name": "h264",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.mp4"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.mp4"
                         }
                     ]
                 },
                 {
                     "name": "reviewLayout",
-                    "family": "review",
+                    "product_type": "review",
                     "_representations": [
                         {
                             "name": "h264",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.mp4"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.mp4"
                         }
                     ]
                 },
                 {
                     "name": "reviewFxFire",
-                    "family": "review",
+                    "product_type": "review",
                     "_representations": [
                         {
                             "name": "h264",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.mp4"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.mp4"
                         }
                     ]
                 },
                 {
                     "name": "renderLightingFG",
-                    "family": "render",
+                    "product_type": "render",
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.{frame}.exr"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
                 {
                     "name": "renderLightingFG_crypto",
-                    "family": "render",
+                    "product_type": "render",
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.{frame}.exr"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
                 {
                     "name": "renderLightingBG",
-                    "family": "render",
+                    "product_type": "render",
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.{frame}.exr"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
                 {
                     "name": "renderLightingBG_crypto",
-                    "family": "render",
+                    "product_type": "render",
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.{frame}.exr"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
                 {
                     "name": "renderFxFire",
-                    "family": "render",
+                    "product_type": "render",
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.{frame}.exr"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
                 {
                     "name": "renderFxSmoke",
-                    "family": "render",
+                    "product_type": "render",
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.{frame}.exr"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
                 {
                     "name": "renderCompositingMain",
-                    "family": "render",
+                    "product_type": "render",
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root}/{project_name}/{path}/{family}/{subset}/v{version:>03d}/{folder}_{subset}_v{version:>03d}.{frame}.exr"
+                            "template": "{root}/{project_name}/{path}/{product_type}/{product}/v{version:>03d}/{folder}_{product}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 }

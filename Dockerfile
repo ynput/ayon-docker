@@ -39,6 +39,7 @@ COPY ./backend/static /backend/static
 COPY ./backend/start.sh /backend/start.sh
 COPY ./backend/reload.sh /backend/reload.sh
 COPY ./backend/demogen /backend/demogen
+COPY ./backend/linker /backend/linker
 COPY ./backend/setup /backend/setup
 
 COPY ./backend/schemas /backend/schemas
