@@ -5,13 +5,11 @@
 SETTINGS_FILE=settings/template.json
 IMAGE_NAME=ynput/ayon
 SERVER_CONTAINER=server
+TAG=dev
 
 #
 # Variables
 #
-
-# TODO: tag needs to be set to the current version. TBD.
-TAG=$(shell cd backend/ && git describe --tags --always --dirty)
 
 # Abstract the 'docker compose' / 'docker-compose' command
 COMPOSE=$(shell which docker-compose || echo "docker compose")
@@ -63,8 +61,11 @@ reload:
 demo:
 	$(foreach file, $(wildcard demo/*.json), $(COMPOSE) exec -T $(SERVER_CONTAINER) python -m demogen < $(file);)
 
+links:
+	$(foreach file, $(wildcard demo/*.json), $(COMPOSE) exec -T $(SERVER_CONTAINER) python -m linker < $(file);)
+
 update:
-	docker pull $(IMAGE_NAME)
+	docker pull $(IMAGE_NAME):$(TAG)
 	$(COMPOSE) up --detach --build $(SERVER_CONTAINER)
  
 #
@@ -73,11 +74,11 @@ update:
 
 build: backend frontend
 	@# Build the docker image
-	docker build -t $(IMAGE_NAME):$(TAG) -t $(IMAGE_NAME):latest .
+	docker build -t $(IMAGE_NAME):$(TAG) .
 
 dist: build
 	@# Publish the docker image to the registry
-	docker push $(IMAGE_NAME):$(TAG) && docker push $(IMAGE_NAME):latest
+	docker push $(IMAGE_NAME):$(TAG)
 
 backend:
 	@# Clone / update the backend repository
