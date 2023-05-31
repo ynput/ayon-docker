@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.7"
 services:
   postgres:
     image: postgres
@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
 
   server:
-    image: ynput/ayon:latest
+    image: ynput/ayon:dev
     restart: unless-stopped
     volumes:
       - "./addons:/addons"
@@ -38,11 +38,7 @@ services:
       - postgres
     environment:
       - "AYON_POSTGRES_URL=postgres://ayon:ayon@postgres/ayon"
-      - "AYON_DISCORD_CLIENT_ID=${AYON_DISCORD_CLIENT_ID-}"
-      - "AYON_DISCORD_CLIENT_SECRET=${AYON_DISCORD_CLIENT_SECRET-}"
-      - "AYON_GOOGLE_CLIENT_ID=${AYON_GOOGLE_CLIENT_ID-}"
-      - "AYON_GOOGLE_CLIENT_SECRET=${AYON_GOOGLE_CLIENT_SECRET-}"
-      - "AYON_MOTD_PATH=${AYON_MOTD_PATH-/storage/motd.md}"
 
 volumes:
   db: {}
+
