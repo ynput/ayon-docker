@@ -567,7 +567,7 @@
     },
     {
       "link_type": "generative|version|version",
-      "input": {product
+      "input": {
         "folder_type": "Asset",
         "folder_path": "^assets/.*",
         "product_name": "workfileModelling"
