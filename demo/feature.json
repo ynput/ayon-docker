@@ -18,7 +18,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -28,11 +28,11 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.abc"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.abc"
                                 }
                             ]
                         },
@@ -42,11 +42,11 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.abc"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.abc"
                                 }
                             ]
                         },
@@ -56,11 +56,11 @@
                             "_representations": [
                                 {
                                     "name": "obj",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.abc"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.abc"
                                 }
                             ]
                         },
@@ -70,11 +70,11 @@
                             "_representations": [
                                 {
                                     "name": "jpg",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.jpg"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.jpg"
                                 },
                                 {
                                     "name": "psd",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.psd"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.psd"
                                 }
                             ]
                         },
@@ -84,11 +84,11 @@
                             "_representations": [
                                 {
                                     "name": "jpg",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.jpg"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.jpg"
                                 },
                                 {
                                     "name": "psd",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.psd"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.psd"
                                 }
                             ]
                         },
@@ -98,7 +98,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -108,7 +108,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -118,7 +118,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -128,11 +128,11 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "mtlx",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.mtlx"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.mtlx"
                                 }
                             ]
                         },
@@ -142,7 +142,7 @@
                             "_representations": [
                                 {
                                     "name": "mtlx",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.mtlx"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.mtlx"
                                 }
                             ]
                         }
@@ -167,7 +167,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -177,15 +177,15 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "usd",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.usd"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.usd"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.abc"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.abc"
                                 }
                             ]
                         },
@@ -195,7 +195,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -205,7 +205,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -215,7 +215,7 @@
                             "_representations": [
                                 {
                                     "name": "jpg",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.jpg"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.jpg"
                                 }
                             ]
                         },
@@ -225,7 +225,7 @@
                             "_representations": [
                                 {
                                     "name": "jpg",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.jpg"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.jpg"
                                 }
                             ]
                         },
@@ -235,7 +235,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -245,7 +245,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -255,7 +255,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -265,7 +265,7 @@
                             "_representations": [
                                 {
                                     "name": "psd",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.psd"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.psd"
                                 }
                             ]
                         }
@@ -289,11 +289,11 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "abc",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.abc"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.abc"
                                 }
                             ]
                         },
@@ -303,7 +303,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -313,7 +313,7 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 }
                             ]
                         },
@@ -323,11 +323,11 @@
                             "_representations": [
                                 {
                                     "name": "ma",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                                 },
                                 {
                                     "name": "mtlx",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.mtlx"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.mtlx"
                                 }
                             ]
                         },
@@ -337,7 +337,7 @@
                             "_representations": [
                                 {
                                     "name": "mtlx",
-                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.mtlx"
+                                    "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.mtlx"
                                 }
                             ]
                         }
@@ -363,7 +363,7 @@
                     "_representations": [
                         {
                             "name": "ma",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                         }
                     ]
                 },
@@ -373,7 +373,7 @@
                     "_representations": [
                         {
                             "name": "ma",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                         }
                     ]
                 },
@@ -383,11 +383,11 @@
                     "_representations": [
                         {
                             "name": "abc",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.abc"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.abc"
                         },
                         {
                             "name": "anim",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.anim"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.anim"
                         }
                     ]
                 },
@@ -397,11 +397,11 @@
                     "_representations": [
                         {
                             "name": "abc",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.abc"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.abc"
                         },
                         {
                             "name": "anim",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.anim"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.anim"
                         }
                     ]
                 },
@@ -411,11 +411,11 @@
                     "_representations": [
                         {
                             "name": "abc",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.abc"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.abc"
                         },
                         {
                             "name": "ma",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.ma"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.ma"
                         }
                     ]
                 },
@@ -425,7 +425,7 @@
                     "_representations": [
                         {
                             "name": "vdb",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.vdb"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.vdb"
                         }
                     ]
                 },
@@ -435,7 +435,7 @@
                     "_representations": [
                         {
                             "name": "h264",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.mp4"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.mp4"
                         }
                     ]
                 },
@@ -445,7 +445,7 @@
                     "_representations": [
                         {
                             "name": "h264",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.mp4"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.mp4"
                         }
                     ]
                 },
@@ -455,7 +455,7 @@
                     "_representations": [
                         {
                             "name": "h264",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.mp4"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.mp4"
                         }
                     ]
                 },
@@ -465,7 +465,7 @@
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.{frame}.exr"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
@@ -475,7 +475,7 @@
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.{frame}.exr"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
@@ -485,7 +485,7 @@
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.{frame}.exr"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
@@ -495,7 +495,7 @@
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.{frame}.exr"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
@@ -505,7 +505,7 @@
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.{frame}.exr"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
@@ -515,7 +515,7 @@
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.{frame}.exr"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 },
@@ -525,7 +525,7 @@
                     "_representations": [
                         {
                             "name": "exr",
-                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder}_{product[name]}_v{version:>03d}.{frame}.exr"
+                            "template": "{root[work]}/{project[name]}/{path}/{product[type]}/{product[name]}/v{version:>03d}/{folder[name]}_{product[name]}_v{version:>03d}.{frame}.exr"
                         }
                     ]
                 }
