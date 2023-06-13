@@ -48,4 +48,4 @@ COPY ./backend/api /backend/api
 
 COPY --from=build /frontend/dist/ /frontend
 
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "--log-level", "warning", "-b", ":5000", "ayon_server.api:app"]
+ENTRYPOINT /backend/start.sh
