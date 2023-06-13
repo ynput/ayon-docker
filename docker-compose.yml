@@ -1,4 +1,5 @@
 version: "3.7"
+
 services:
   postgres:
     image: postgres
@@ -12,12 +13,22 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
       - "db:/var/lib/postgresql/data"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ayon"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   redis:
     image: redis:alpine
     expose:
       - 6379
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   server:
     image: ynput/ayon:dev
@@ -34,8 +45,10 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - redis
-      - postgres
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     environment:
       - "AYON_POSTGRES_URL=postgres://ayon:ayon@postgres/ayon"
 
