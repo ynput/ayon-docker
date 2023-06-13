@@ -48,7 +48,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      redis: {}
+      redis:
+        condition: service_started
     environment:
       - "AYON_POSTGRES_URL=postgres://ayon:ayon@postgres/ayon"
 
