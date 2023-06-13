@@ -24,11 +24,12 @@ services:
     expose:
       - 6379
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+    # TODO: This check floods logs (too many writes)
+    # healthcheck:
+    #   test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+    #   interval: 5s
+    #   timeout: 5s
+    #   retries: 5
 
   server:
     image: ynput/ayon:dev
@@ -47,8 +48,7 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      redis:
-        condition: service_healthy
+      redis: {}
     environment:
       - "AYON_POSTGRES_URL=postgres://ayon:ayon@postgres/ayon"
 
