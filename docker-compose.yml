@@ -50,6 +50,10 @@ services:
         condition: service_healthy
       redis:
         condition: service_started
+    # uncomment for older versions of Docker and comment out above "depends on" section.
+    #depends_on:
+      #- postgres
+      #- redis
     environment:
       - "AYON_POSTGRES_URL=postgres://ayon:ayon@postgres/ayon"
 
