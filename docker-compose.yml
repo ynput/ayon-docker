@@ -10,6 +10,7 @@ services:
       - "POSTGRES_PASSWORD=ayon"
       - "POSTGRES_DB=ayon"
     volumes:
+      # comment out the following line on Windows
       - "/etc/localtime:/etc/localtime:ro"
       - "db:/var/lib/postgresql/data"
     restart: unless-stopped
