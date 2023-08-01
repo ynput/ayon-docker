@@ -48,5 +48,7 @@ COPY ./backend/api /backend/api
 
 COPY --from=build /frontend/dist/ /frontend
 
+RUN sh -c 'date +%y%m%d%H%M > /backend/BUILD_DATE'
+
 #ENTRYPOINT /backend/start.sh
 CMD ["/bin/bash", "start.sh"]
