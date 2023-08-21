@@ -22,7 +22,7 @@ function defaultfunc {
   Write-Host ""
   Write-Host "Ayon server $($TAG)"
   Write-Host ""
-  Write-Host "Usage: make [target]"
+  Write-Host "Usage: ./manage.ps1 [target]"
   Write-Host ""
   Write-Host "Runtime targets:"
   Write-Host "  setup     Apply settings temlpate form the settings/template.json"
