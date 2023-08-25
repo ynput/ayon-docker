@@ -1,33 +1,10 @@
 {
-    "addons": {
-      "ftrack": "1.0.0",
-      "example": "1.0.0"
-    },
-
-    "settings": {
-      "ftrack": {
-        "1.0.0": {
-          "ftrack_server": "https://yourname.ftrackapp.com",
-          "service_settings": {
-            "username": "accountname",
-            "api_key": "yourapikey"
-          }
-        }
-      }
-    },
-
     "users": [
         {
             "name": "admin",
             "password": "admin",
             "fullName": "Ayon admin",
             "isAdmin": true
-        },
-        {
-            "name": "demo",
-            "password": "ayondemouser",
-            "defaultRoles": ["artist", "viewer"],
-            "fullName": "Demo user"
         },
         {
             "name": "service",
