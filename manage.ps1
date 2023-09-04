@@ -5,7 +5,8 @@ Param([Parameter(Position=0)]$FunctionName)
 $SCRIPT_DIR = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 Set-Location "$($SCRIPT_DIR)"
 $SETTINGS_FILE = "settings/template.json"
-$IMAGE_NAME = "ynput/ayon:dev"
+$IMAGE_NAME = "ynput/ayon"
+$DEFAULT_IMAGE = "$($IMAGE_NAME):dev"
 $SERVER_CONTAINER = "server"
 
 # Variables
@@ -21,7 +22,7 @@ function defaultfunc {
   Write-Host ""
   Write-Host "Ayon server $($TAG)"
   Write-Host ""
-  Write-Host "Usage: make [target]"
+  Write-Host "Usage: ./manage.ps1 [target]"
   Write-Host ""
   Write-Host "Runtime targets:"
   Write-Host "  setup     Apply settings temlpate form the settings/template.json"
@@ -65,7 +66,7 @@ function demo {
 }
 
 function update {
-  docker pull $IMAGE_NAME
+  docker pull $DEFAULT_IMAGE
   & "$($COMPOSE)" up --detach --build "$($SERVER_CONTAINER)"
 }
 
