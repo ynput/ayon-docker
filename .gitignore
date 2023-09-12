@@ -5,3 +5,6 @@ storage/
 
 # Ignore dumped projects from git
 /*.sql
+
+# JetBrains IDE data
+.idea
