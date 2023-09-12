@@ -1,5 +1,8 @@
-# Receive first positional argument
-Param([Parameter(Position=0)]$FunctionName)
+$FunctionName=$ARGS[0]
+$arguments=@()
+if ($ARGS.Length -gt 1) {
+    $arguments = $ARGS[1..($ARGS.Length - 1)]
+}
 
 # Settings
 $SCRIPT_DIR = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
@@ -31,10 +34,13 @@ function defaultfunc {
   Write-Host "  demo      Create demo projects based on settings in demo directory"
   Write-Host ""
   Write-Host "Development:"
-  Write-Host "  backend   Download / update backend"
-  Write-Host "  frontend  Download / update frontend"
-  Write-Host "  build     Build docker image"
-  Write-Host "  dist      Publish docker image to docker hub"
+  Write-Host "  backend            Download / update backend"
+  Write-Host "  frontend           Download / update frontend"
+  Write-Host "  build              Build docker image"
+  Write-Host "  dist               Publish docker image to docker hub"
+  Write-Host "  dump [PROJECT]     Dump project database into file"
+  Write-Host "  restore [PROJECT]  Restore project database from file"
+  Write-Host ""
 }
 
 # Makefile syntax, oh so bad
@@ -100,6 +106,52 @@ function frontend {
   }
 }
 
+function dump {
+  $projectname = $args[0]
+  if ($projectname -eq $null) {
+    Write-Error "Error: Project name is required. Usage: ./manage.ps1 dump [PROJECT]"
+    exit 1
+  }
+
+  Write-Host "Dumping project '$projectname'"
+  $dumpfile = "dump.$projectname.sql"
+
+  # Create the file if it doesn't exist.
+  if (Test-Path $dumpfile) {
+      Remove-Item $dumpfile
+  }
+  New-Item $dumpfile -Force
+
+  # Write the DROP SCHEMA statement to the file.
+  echo "DROP SCHEMA IF EXISTS project_$projectname CASCADE;" >> $dumpfile
+
+  # Write the DELETE statement to the file.
+  echo "DELETE FROM public.projects WHERE name = '$projectname';" >> $dumpfile
+
+  # Get the list of tables in the project schema.
+  docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon | Out-String -Stream | Select-String -Pattern "^INSERT INTO" -AllMatches | Select-String -Pattern $projectname -AllMatches >> $dumpfile
+  docker compose exec postgres pg_dump --schema=project_$($projectname) ayon -U ayon >> $dumpfile
+}
+
+function restore {
+  $projectname = $args[0]
+  if ($projectname -eq $null) {
+    Write-Error "Error: Project name is required. Usage: ./manage.ps1 restore [PROJECT]"
+    exit 1
+  }
+
+  $dumpfile = "dump.$projectname.sql"
+
+  # Check if the dump file exists.
+  if (-not (Test-Path $dumpfile)) {
+    Write-Error "Error: Dump file $file not found"
+    exit 1
+  }
+
+  # Restore the database from the dump file.
+  Get-Content $dumpfile | docker-compose exec -T postgres psql -U ayon ayon
+}
+
 function main {
   if ($FunctionName -eq "setup") {
     setup
@@ -119,6 +171,10 @@ function main {
     backend
   } elseif ($FunctionName -eq "frontend") {
     frontend
+  } elseif ($FunctionName -eq "dump") {
+    dump @arguments
+  } elseif ($FunctionName -eq "restore") {
+    restore @arguments
   } elseif ($FunctionName -eq $null) {
     defaultfunc
   } else {
