@@ -129,7 +129,7 @@ function dump {
   echo "DELETE FROM public.projects WHERE name = '$projectname';" >> $dumpfile
 
   # Get the list of tables in the project schema.
-  docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon | Out-String -Stream | Select-String -Pattern "^INSERT INTO" -AllMatches | Select-String -Pattern $projectname -AllMatches >> $dumpfile
+  docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon | Out-String -Stream | Select-String -Pattern "^INSERT INTO" -AllMatches | Select-String -Pattern "'$($projectname)'" -AllMatches >> $dumpfile
   docker compose exec postgres pg_dump --schema=project_$($projectname) ayon -U ayon >> $dumpfile
 }
 
