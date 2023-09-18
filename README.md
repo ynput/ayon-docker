@@ -1,18 +1,7 @@
 AYON Server
 ===========
 
-Ayon Server is a powerful tool for managing and automating the visual effects 
-workflow for film and television productions.
-
-Features
---------
-
- - Support for multiple projects and teams
- - Customizable task management and scheduling
- - File management and version control
- - Integration with industry-standard VFX software
- - Collaboration and communication tools
- - Real-time monitoring and reporting
+Ayon Server is a powerful tool for managing and automating workflow for animation and visual effects.
 
 Requirements
 ------------
@@ -34,11 +23,8 @@ Installation
  - Tweak the `docker-compose.yml` file according to your requirements.
  - You may use `.env` file to set environment variables (for example for SSO configuration).
  - On Windows, comment-out or delete  `- "/etc/localtime:/etc/localtime:ro"` line from the `docker-compose.yml`
- - Install addons to the addons directory.
- - Modify the default settings in the `settings/template.json` file.
  - Run the stack using `docker compose up -d`
- - Run `make setup` (Unix) or `manage.ps1 setup` (Windows) to set up the server.
- - Once the setup is complete, navigate to `http://localhost:5000/` in your web browser and log in as admin/admin.
+ - Once the docker is up, navigate to `http://localhost:5000/` in your web browser and follow the onboarding steps presented to you.
 
 ### Demo Projects
 
@@ -53,7 +39,7 @@ You can setup a demo which will create 3 project;
 Development
 -----------
 
-To work on the Ayon code, you need to download the frontend and backend repositories.
+To work on the Ayon server code, you need to download the frontend and backend repositories.
 
 ### Backend
 
