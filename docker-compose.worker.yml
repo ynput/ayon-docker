@@ -2,14 +2,16 @@ version: "3.7"
 
 services:
   worker:
-    image: ynput/ayon-ash:latest
     hostname: worker
+    image: ynput/ayon-ash:latest
     restart: unless-stopped
-    network_mode: host
     depends_on:
-     - server
+      server:
+        condition: service_healthy
+
     volumes:
      - "/var/run/docker.sock:/var/run/docker.sock"
+
     environment:
       - "AYON_API_KEY=${AYON_API_KEY-veryinsecurapikey}"
       - "AYON_SERVER_URL=${AYON_SERVER_URL-http://server:5000}"

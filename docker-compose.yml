@@ -3,15 +3,6 @@ version: "3.7"
 services:
   postgres:
     image: postgres:15
-    expose:
-      - 5432
-    environment:
-      - "POSTGRES_USER=ayon"
-      - "POSTGRES_PASSWORD=ayon"
-      - "POSTGRES_DB=ayon"
-    volumes:
-      - "/etc/localtime:/etc/localtime:ro"
-      - "db:/var/lib/postgresql/data"
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ayon"]
@@ -19,21 +10,47 @@ services:
       timeout: 5s
       retries: 5
 
+    expose: [5432]
+
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "db:/var/lib/postgresql/data"
+
+    environment:
+      - "POSTGRES_USER=ayon"
+      - "POSTGRES_PASSWORD=ayon"
+      - "POSTGRES_DB=ayon"
+
   redis:
     image: redis:alpine
-    expose:
-      - 6379
     restart: unless-stopped
-    # TODO: This check floods logs (too many writes)
-    # healthcheck:
-    #   test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
-    #   interval: 5s
-    #   timeout: 5s
-    #   retries: 5
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+    expose: [6379]
+
 
   server:
     image: ynput/ayon:dev
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/info"]
+      interval: 10s 
+      timeout: 2s
+      retries: 3
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+    expose: [5000]
+    ports: ["5000:5000"]
+
     volumes:
       - "./addons:/addons"
       - "./storage:/storage"
@@ -43,15 +60,7 @@ services:
       
       # uncomment the following line if you need to work on the backend code
       # - "./backend:/backend"
-    ports:
-      - "5000:5000"
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_started
-    environment:
-      - "AYON_POSTGRES_URL=postgres://ayon:ayon@postgres/ayon"
+
 
 volumes:
   db: {}
