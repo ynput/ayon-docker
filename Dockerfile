@@ -2,7 +2,7 @@
 # Build frontend
 #
 
-FROM node:latest AS build
+FROM node:20 AS build
 
 RUN mkdir /frontend
 WORKDIR /frontend
@@ -45,6 +45,7 @@ COPY ./backend/setup /backend/setup
 COPY ./backend/schemas /backend/schemas
 COPY ./backend/ayon_server /backend/ayon_server
 COPY ./backend/api /backend/api
+COPY ./RELEAS[E] /backend/RELEASE
 
 COPY --from=build /frontend/dist/ /frontend
 
