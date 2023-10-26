@@ -70,18 +70,35 @@ update:
 	docker pull $(IMAGE_NAME):$(TAG)
 	$(COMPOSE) up --detach --build $(SERVER_CONTAINER)
 
-
 dump:
 	@if [ -z "$(projectname)" ]; then \
-  	echo "Error: Project name is required. Usage: make dump projectname=<projectname>"; \
+		echo "Error: Project name is required. Usage: make dump projectname=<projectname>"; \
 		exit 1; \
-  fi
+  	fi
+
+	@# Create a statement to remove project if already exists
 
 	echo "DROP SCHEMA IF EXISTS project_$(projectname) CASCADE;" > dump.$(projectname).sql
 	echo "DELETE FROM public.projects WHERE name = '$(projectname)';" >> dump.$(projectname).sql
 
-	docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon | grep "^INSERT INTO" | grep \'$(projectname)\' >> dump.$(projectname).sql
+	@# Dump project data from public.projects table
+
+	docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon | \
+		grep "^INSERT INTO" | grep \'$(projectname)\' >> dump.$(projectname).sql
+
+	@# Get all product types used in the project
+	@# and insert them into the product_types table
+	@# (if they don't exist yet)
+
+	docker compose exec postgres psql -U ayon ayon -Atc "SELECT DISTINCT(product_type) from project_$(projectname).products;" | \
+	while read -r product_type; do \
+		echo "INSERT INTO public.product_types (name) VALUES ('$${product_type}') ON CONFLICT DO NOTHING;"; \
+	done >> dump.$(projectname).sql
+
+	@# Dump project schema (tables, views, etc.)
+
 	docker compose exec postgres pg_dump --schema=project_$(projectname) ayon -U ayon >> dump.$(projectname).sql
+
 
 
 restore:
