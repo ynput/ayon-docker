@@ -30,6 +30,8 @@ default:
 	@echo "  dbshell   Open a PostgreSQL shell"
 	@echo "  reload    Reload the running server"
 	@echo "  demo      Create demo projects based on settings in demo directory"
+	@echo "  dump      Use 'make dump projectname=<projectname>' to backup a project"
+	@echo "  restore   Use 'make restore projectname=<projectname>' to restore a project from previous dump"
 	@echo ""
 	@echo "Development:"
 	@echo "  backend   Download / update backend"
@@ -67,7 +69,50 @@ links:
 update:
 	docker pull $(IMAGE_NAME):$(TAG)
 	$(COMPOSE) up --detach --build $(SERVER_CONTAINER)
- 
+
+dump:
+	@if [ -z "$(projectname)" ]; then \
+		echo "Error: Project name is required. Usage: make dump projectname=<projectname>"; \
+		exit 1; \
+  	fi
+
+	@# Create a statement to remove project if already exists
+
+	echo "DROP SCHEMA IF EXISTS project_$(projectname) CASCADE;" > dump.$(projectname).sql
+	echo "DELETE FROM public.projects WHERE name = '$(projectname)';" >> dump.$(projectname).sql
+
+	@# Dump project data from public.projects table
+
+	docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon | \
+		grep "^INSERT INTO" | grep \'$(projectname)\' >> dump.$(projectname).sql
+
+	@# Get all product types used in the project
+	@# and insert them into the product_types table
+	@# (if they don't exist yet)
+
+	docker compose exec postgres psql -U ayon ayon -Atc "SELECT DISTINCT(product_type) from project_$(projectname).products;" | \
+	while read -r product_type; do \
+		echo "INSERT INTO public.product_types (name) VALUES ('$${product_type}') ON CONFLICT DO NOTHING;"; \
+	done >> dump.$(projectname).sql
+
+	@# Dump project schema (tables, views, etc.)
+
+	docker compose exec postgres pg_dump --schema=project_$(projectname) ayon -U ayon >> dump.$(projectname).sql
+
+
+
+restore:
+	@if [ -z "$(projectname)" ]; then \
+  	echo "Error: Project name is required. Usage: make dump projectname=<projectname>"; \
+		exit 1; \
+	fi
+
+	@if [ ! -f dump.$(projectname).sql ]; then \
+		echo "Error: Dump file dump.$(projectname).sql not found"; \
+		exit 1; \
+	fi
+	docker compose exec -T postgres psql -U ayon ayon < dump.$(projectname).sql
+
 #
 # The following targets are for development purposes only.
 #
