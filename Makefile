@@ -37,7 +37,6 @@ default:
 	@echo "  backend   Download / update backend"
 	@echo "  frontend  Download / update frontend"
 	@echo "  build     Build docker image"
-	@echo "  dist      Publish docker image to docker hub"
 	
 
 .PHONY: backend frontend build demo
@@ -117,14 +116,6 @@ restore:
 # The following targets are for development purposes only.
 #
 
-build: backend frontend
-	@# Build the docker image
-	docker build -t $(IMAGE_NAME):$(TAG) .
-
-dist: build
-	@# Publish the docker image to the registry
-	docker push $(IMAGE_NAME):$(TAG)
-
 backend:
 	@# Clone / update the backend repository
 	@[ -d $@ ] || git clone https://github.com/ynput/ayon-backend $@
@@ -134,3 +125,17 @@ frontend:
 	@# Clone / update the frontend repository
 	@[ -d $@ ] || git clone https://github.com/ynput/ayon-frontend $@
 	@cd $@ && git pull
+
+relinfo:
+	echo version=$(shell cd backend && python -c "from ayon_server import __version__; print(__version__)") > RELEASE
+	echo build_date=$(shell date +%Y%m%d) >> RELEASE
+	echo build_time=$(shell date +%H%M) >> RELEASE
+	echo frontend_branch=$(shell cd frontend && git branch --show-current) >> RELEASE
+	echo backend_branch=$(shell cd backend && git branch --show-current) >> RELEASE
+	echo frontend_commit=$(shell cd frontend && git rev-parse --short HEAD) >> RELEASE
+	echo backend_commit=$(shell cd backend && git rev-parse --short HEAD) >> RELEASE
+
+build: backend frontend relinfo
+	@# Build the docker image
+	docker build -t $(IMAGE_NAME):$(TAG) .
+
