@@ -37,7 +37,8 @@ default:
 	@echo "  backend   Download / update backend"
 	@echo "  frontend  Download / update frontend"
 	@echo "  build     Build docker image"
-	
+	@echo "  relinfo   Create RELEASE file with version info (debugging)"
+
 
 .PHONY: backend frontend build demo
 
