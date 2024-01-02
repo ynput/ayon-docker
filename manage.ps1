@@ -96,7 +96,7 @@ function relinfo {
   $frontend_branch = Invoke-Expression -Command "git branch --show-current"
   $frontend_commit = Invoke-Expression -Command "git rev-parse --short HEAD"
   Set-Location $cur_cwd
-  $output_content = @”
+  $output_content = @"
 version=$($backend_version)
 build_date=$($build_date)
 build_time=$($build_time)
@@ -104,7 +104,7 @@ frontend_branch=$($backend_branch)
 backend_branch=$($frontend_branch)
 frontend_commit=$($backend_commit)
 backend_commit=$($frontend_commit)
-“@
+"@
 
   $output_content | Out-File -FilePath $output_file -Encoding utf8
 }
