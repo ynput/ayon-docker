@@ -37,6 +37,7 @@ function defaultfunc {
   Write-Host "  backend            Download / update backend"
   Write-Host "  frontend           Download / update frontend"
   Write-Host "  build              Build docker image"
+  Write-Host "  relinfo            Create RELEASE file with version info (debugging)"
   Write-Host "  dist               Publish docker image to docker hub"
   Write-Host "  dump [PROJECT]     Dump project database into file"
   Write-Host "  restore [PROJECT]  Restore project database from file"
@@ -76,11 +77,44 @@ function update {
   & "$($COMPOSE)" up --detach --build "$($SERVER_CONTAINER)"
 }
 
+function relinfo {
+  $backend_dir = "$($SCRIPT_DIR)\backend"
+  $frontend_dir = "$($SCRIPT_DIR)\frontend"
+  $output_file = "$($SCRIPT_DIR)\RELEASE"
+
+  $cur_date = Get-Date
+
+  $backend_version = Invoke-Expression -Command "python -c ""import os;import sys;content={};f=open(r'$($backend_dir)\ayon_server\version.py');exec(f.read(),content);f.close();print(content['__version__'])"""
+  $build_date = Get-Date -Date $cur_date -Format "yyyyMMdd"
+  $build_time = Get-Date -Date $cur_date -Format "HHmm"
+  $cur_cwd = Get-Location
+
+  Set-Location $backend_dir
+  $backend_branch = Invoke-Expression -Command "git branch --show-current"
+  $backend_commit = Invoke-Expression -Command "git rev-parse --short HEAD"
+  Set-Location $frontend_dir
+  $frontend_branch = Invoke-Expression -Command "git branch --show-current"
+  $frontend_commit = Invoke-Expression -Command "git rev-parse --short HEAD"
+  Set-Location $cur_cwd
+  $output_content = @”
+version=$($backend_version)
+build_date=$($build_date)
+build_time=$($build_time)
+frontend_branch=$($backend_branch)
+backend_branch=$($frontend_branch)
+frontend_commit=$($backend_commit)
+backend_commit=$($frontend_commit)
+“@
+
+  $output_content | Out-File -FilePath $output_file -Encoding utf8
+}
+
 # The following targets are for development purposes only.
 
 function build {
   backend
   frontend
+  relinfo
   # Build the docker image
   docker build -t "$($IMAGE_NAME):$($TAG)" -t "$($IMAGE_NAME):latest" .
 }
@@ -166,6 +200,8 @@ function main {
     update
   } elseif ($FunctionName -eq "build") {
     build
+  } elseif ($FunctionName -eq "relinfo") {
+    relinfo
   } elseif ($FunctionName -eq "dist") {
     dist
   } elseif ($FunctionName -eq "backend") {
@@ -176,7 +212,7 @@ function main {
     dump @arguments
   } elseif ($FunctionName -eq "restore") {
     restore @arguments
-  } elseif ($FunctionName -eq $null) {
+  } elseif ($null -eq $FunctionName) {
     defaultfunc
   } else {
     Write-Host "Unknown function ""$FunctionName"""
