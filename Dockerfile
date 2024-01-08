@@ -29,6 +29,10 @@ WORKDIR /backend
 
 COPY ./backend/pyproject.toml /backend/pyproject.toml
 
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends \
+    postgresql-client
+
 RUN \
   pip install -U pip && \
   pip install poetry && \
@@ -51,5 +55,4 @@ COPY --from=build /frontend/dist/ /frontend
 
 RUN sh -c 'date +%y%m%d%H%M > /backend/BUILD_DATE'
 
-#ENTRYPOINT /backend/start.sh
-CMD ["/bin/bash", "start.sh"]
+CMD ["/bin/bash", "/backend/start.sh"]
