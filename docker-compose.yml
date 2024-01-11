@@ -38,7 +38,7 @@ services:
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/api/info"]
-      interval: 10s 
+      interval: 10s
       timeout: 2s
       retries: 3
 
@@ -64,8 +64,6 @@ services:
 
       # uncomment the following line if you need to work on the backend code
       # - "./backend:/backend"
-    environment:
-      - "AYON_POSTGRES_URL=postgres://ayon:ayon@postgres/ayon"
 
 volumes:
   db: {}
