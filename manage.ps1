@@ -179,7 +179,7 @@ function restore {
 
   # Check if the dump file exists.
   if (-not (Test-Path $dumpfile)) {
-    Write-Error "Error: Dump file $file not found"
+    Write-Error "Error: Dump file $SCRIPT_DIR\$dumpfile not found"
     exit 1
   }
 
