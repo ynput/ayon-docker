@@ -169,7 +169,7 @@ function dump {
 }
 
 function restore {
-  $projectname = $args[0]
+  $projectname = $arguments[0]
   if ($projectname -eq $null) {
     Write-Error "Error: Project name is required. Usage: ./manage.ps1 restore [PROJECT]"
     exit 1
