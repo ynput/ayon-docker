@@ -1,64 +1,38 @@
 AYON Server
 ===========
 
-Ayon Server is a powerful tool for managing and automating workflow for animation and visual effects.
+This is the official Docker-based deployment for the Ayon Server. 
+Ayon is a robust tool designed to manage and automate workflows in the animation and visual effects industries.
 
-Requirements
+The Docker image includes both:
+
+- [ayon-backend](https://github.com/ynput/ayon-backend): The server backend
+- [ayon-frontend](https://github.com/ynput/ayon-frontend): Web interface
+
+
+Installation
 ------------
 
-Docker with **compose** plugin. To install the latest Docker, you may use this script: 
-https://get.docker.com
-
-If you use stand-alone `docker-compose` script instead of the compose plugin, 
-make sure to use `docker-compose` wherever `docker compose` is used in this tutorial.
+You can use the provided `docker-compose.yml` as a template to start your own deployment.
 
 For the production, using Linux is highly recommended, but for evaluation purposes,
 Windows with WSL could be used.
 
- 
-Installation
-------------
+For more information on installation and user guides, 
+please visit our [documentation website](https://ayon.ynput.io/docs/system_introduction).
 
- - Clone this repository to your local machine.
- - Tweak the `docker-compose.yml` file according to your requirements.
- - You may use `.env` file to set environment variables (for example for SSO configuration).
- - On Windows, comment-out or delete  `- "/etc/localtime:/etc/localtime:ro"` line from the `docker-compose.yml`
- - Run the stack using `docker compose up -d`
- - Once the docker is up, navigate to `http://localhost:5000/` in your web browser and follow the onboarding steps presented to you.
+### Demo projects
 
-### Demo Projects
+To help you get familiar with the interface, the templates/ directory includes three demo project templates:
 
-You can setup a demo which will create 3 project; 
-`demo_Commercial`, `demo_Big_Episodic` and `demo_Big_Feature`.
+- demo_Commercial
+- demo_Big_Episodic
+- demo_Big_Feature
 
-- `make demo` (Unix) or `manage.ps1 demo` (Windows)
+To deploy these demo projects to your server, run:
 
-**NOTE: These demo projects can take a while to create.**
+- make demo on Unix systems
+- manage.ps1 demo on Windows
 
+*NOTE: These demo projects can take a while to create.*
 
-Development
------------
-
-To work on the Ayon server code, you need to download the frontend and backend repositories.
-
-### Backend
-
-To start working on the backend, run the following command in your terminal:
-
-```bash
-make backend && make frontend
-```
-
-After that, uncomment the `-"./backend:/backend"` line in the `docker-compose.yml` file. 
-This will mount your local backend to the container. 
-You will need to restart the stack by running docker compose down && docker compose up.
-
-To apply your changes to the backend service, run `make reload`.
-
-### Frontend
-
-To work on the frontend code, you need to have Node 18+ and yarn installed on your machine.
-
-Navigate to the `frontend` directory and run `yarn install` and then `yarn dev`. 
-This command will start the development server for the frontend on port 3000 by default. 
-All API requests will be proxied to the server running on `localhost:5000`.
