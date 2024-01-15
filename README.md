@@ -1,4 +1,4 @@
-AYON Server
+ayon-docker
 ===========
 
 This is the official Docker-based deployment for the Ayon Server. 
