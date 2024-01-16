@@ -38,7 +38,7 @@ services:
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/api/info"]
-      interval: 10s 
+      interval: 10s
       timeout: 2s
       retries: 3
 
@@ -47,6 +47,10 @@ services:
         condition: service_healthy
       redis:
         condition: service_started
+    # uncomment for older versions of Docker (>4.0.0) and comment out above "depends on" section.
+    #depends_on:
+      #- postgres
+      #- redis
 
     expose: [5000]
     ports: ["5000:5000"]
@@ -54,14 +58,12 @@ services:
     volumes:
       - "./addons:/addons"
       - "./storage:/storage"
-      
+
       # comment out the following line on Windows
       - "/etc/localtime:/etc/localtime:ro"
-      
+
       # uncomment the following line if you need to work on the backend code
       # - "./backend:/backend"
 
-
 volumes:
   db: {}
-
