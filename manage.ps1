@@ -28,7 +28,7 @@ function defaultfunc {
   Write-Host "Usage: ./manage.ps1 [target]"
   Write-Host ""
   Write-Host "Runtime targets:"
-  Write-Host "  setup     Apply settings temlpate form the settings/template.json"
+  Write-Host "  setup     Apply settings template form the settings/template.json"
   Write-Host "  dbshell   Open a PostgreSQL shell"
   Write-Host "  reload    Reload the running server"
   Write-Host "  demo      Create demo projects based on settings in demo directory"
