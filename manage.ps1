@@ -9,7 +9,7 @@ $SCRIPT_DIR = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 Set-Location "$($SCRIPT_DIR)"
 $SETTINGS_FILE = "settings/template.json"
 $IMAGE_NAME = "ynput/ayon"
-$DEFAULT_IMAGE = "$($IMAGE_NAME):dev"
+$DEFAULT_IMAGE = "$($IMAGE_NAME):latest"
 $SERVER_CONTAINER = "server"
 
 # Variables
