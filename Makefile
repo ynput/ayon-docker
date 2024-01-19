@@ -5,7 +5,7 @@
 SETTINGS_FILE=settings/template.json
 IMAGE_NAME=ynput/ayon
 SERVER_CONTAINER=server
-TAG=dev
+TAG=latest
 
 #
 # Variables
