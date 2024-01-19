@@ -34,7 +34,7 @@ services:
 
 
   server:
-    image: ynput/ayon:dev
+    image: ynput/ayon:latest
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/api/info"]
