@@ -166,6 +166,11 @@ function dump {
   docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon | Out-String -Stream | Select-String -Pattern "^INSERT INTO" -AllMatches | Select-String -Pattern "'$($projectname)'" -AllMatches >> $dumpfile
   docker compose exec postgres psql -U ayon ayon -Atc "SELECT DISTINCT(product_type) from project_$($projectname).products;" | ForEach-Object { "INSERT INTO public.product_types (name) VALUES ('$($_)') ON CONFLICT DO NOTHING;" >> $dumpfile }
   docker compose exec postgres pg_dump --schema=project_$($projectname) ayon -U ayon >> $dumpfile
+  # Enforce UTF8 even for Powershell on Windows
+  $tempfile = $dumpfile + ".tmp"
+  Copy-Item -Path $dumpfile -Destination $tempfile
+  Get-Content $tempfile | Set-Content -Encoding utf8 $dumpfile
+  Remove-Item $tempfile
 }
 
 function restore {
