@@ -148,7 +148,8 @@ function dump {
   }
 
   Write-Host "Dumping project '$projectname'"
-  $dumpfile = "dump.$projectname.sql"
+  $finalfile = "dump.$projectname.sql"
+  $dumpfile = $finalfile + ".tmp"
 
   # Create the file if it doesn't exist.
   if (Test-Path $dumpfile) {
@@ -166,6 +167,9 @@ function dump {
   docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon | Out-String -Stream | Select-String -Pattern "^INSERT INTO" -AllMatches | Select-String -Pattern "'$($projectname)'" -AllMatches >> $dumpfile
   docker compose exec postgres psql -U ayon ayon -Atc "SELECT DISTINCT(product_type) from project_$($projectname).products;" | ForEach-Object { "INSERT INTO public.product_types (name) VALUES ('$($_)') ON CONFLICT DO NOTHING;" >> $dumpfile }
   docker compose exec postgres pg_dump --schema=project_$($projectname) ayon -U ayon >> $dumpfile
+  # Enforce UTF8 even for Powershell on Windows
+  Get-Content $dumpfile | Set-Content -Encoding utf8 $finalfile
+  Remove-Item $dumpfile
 }
 
 function restore {
