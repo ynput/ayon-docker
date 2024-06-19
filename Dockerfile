@@ -8,9 +8,12 @@ RUN mkdir /frontend
 WORKDIR /frontend
 
 COPY ./frontend/index.html /frontend/index.html
-COPY ./frontend/vite.config.js /frontend/vite.config.js
-COPY ./frontend/public /frontend/public
 COPY ./frontend/package.json /frontend/package.json
+COPY ./frontend/public /frontend/public
+
+COPY ./frontend/vite.config.* /frontend/
+COPY ./frontend/tsconfig.jso[n] /frontend/
+COPY ./frontend/tsconfig.node.jso[n] /frontend/
 
 RUN yarn install
 COPY ./frontend/src /frontend/src
