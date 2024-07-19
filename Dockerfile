@@ -34,7 +34,8 @@ COPY ./backend/pyproject.toml /backend/pyproject.toml
 
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
-    postgresql-client
+    postgresql-client \
+    ffmpeg
 
 RUN \
   pip install -U pip && \
