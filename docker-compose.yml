@@ -65,5 +65,41 @@ services:
       # uncomment the following line if you need to work on the backend code
       # - "./backend:/backend"
 
+  worker:
+    hostname: ash_worker_01
+    image: ynput/ayon-ash:latest
+    restart: unless-stopped
+    depends_on:
+      server:
+        condition: service_healthy
+
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+    environment:
+      - "AYON_API_KEY=${AYON_API_KEY}"
+      - "AYON_SERVER_URL=${AYON_SERVER_URL}"
+
+  processor:
+    container_name: dim-processor
+    image: ghcr.io/dimension-studio/ayon-dim-ftrack-processor:latest
+    restart: unless-stopped
+    environment:
+      - "AYON_SERVER_URL=${AYON_SERVER_URL}"
+      - "AYON_API_KEY=${AYON_API_KEY}"
+      - "AYON_ADDON_NAME=dim-ftrack"
+      - "AYON_ADDON_VERSION=1.1.10"
+
+  leecher:
+    container_name: dim-leecher
+    image: ghcr.io/dimension-studio/ayon-dim-ftrack-leecher:latest
+    restart: unless-stopped
+    environment:
+      - "AYON_SERVER_URL=${AYON_SERVER_URL}"
+      - "AYON_API_KEY=${AYON_API_KEY}"
+      - "AYON_ADDON_NAME=dim-ftrack"
+      - "AYON_ADDON_VERSION=1.1.10"
+
+
 volumes:
   db: {}
