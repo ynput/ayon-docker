@@ -82,7 +82,7 @@ services:
 
   processor:
     container_name: dim-processor
-    image: ghcr.io/dimension-studio/ayon-dim-ftrack-processor:latest
+    image: ghcr.io/dimension-studio/ayon-dim-ftrack-processor:1.1.10
     restart: unless-stopped
     environment:
       - "AYON_SERVER_URL=${AYON_SERVER_URL}"
@@ -92,7 +92,7 @@ services:
 
   leecher:
     container_name: dim-leecher
-    image: ghcr.io/dimension-studio/ayon-dim-ftrack-leecher:latest
+    image: ghcr.io/dimension-studio/ayon-dim-ftrack-leecher:1.1.10
     restart: unless-stopped
     environment:
       - "AYON_SERVER_URL=${AYON_SERVER_URL}"
