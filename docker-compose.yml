@@ -81,11 +81,9 @@ services:
       - "AYON_SERVER_URL=${AYON_SERVER_URL}"
 
   processor:
+    container_name: dim-processor
     image: ghcr.io/dimension-studio/ayon-dim-ftrack-processor:1.1.10
     restart: unless-stopped
-    depends_on:
-      worker:
-        condition: service_healthy
     environment:
       - "AYON_SERVER_URL=${AYON_SERVER_URL}"
       - "AYON_API_KEY=${AYON_API_KEY}"
@@ -93,11 +91,9 @@ services:
       - "AYON_ADDON_VERSION=1.1.10"
 
   leecher:
+    container_name: dim-leecher
     image: ghcr.io/dimension-studio/ayon-dim-ftrack-leecher:1.1.10
     restart: unless-stopped
-    depends_on:
-      worker:
-        condition: service_healthy
     environment:
       - "AYON_SERVER_URL=${AYON_SERVER_URL}"
       - "AYON_API_KEY=${AYON_API_KEY}"
