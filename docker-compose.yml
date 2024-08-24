@@ -67,7 +67,7 @@ services:
 
   worker:
     hostname: ash_worker_01
-    image: ynput/ayon-ash:latest
+    image: ghcr.io/dimension-studio/ash:latest
     restart: unless-stopped
     depends_on:
       server:
@@ -79,6 +79,10 @@ services:
     environment:
       - "AYON_API_KEY=${AYON_API_KEY}"
       - "AYON_SERVER_URL=${AYON_SERVER_URL}"
+      - "GHCR_TOKEN=${GHCR_TOKEN}"
+      - "GHCR_USERNAME=${GHCR_USERNAME}"
+
+
 
 #  processor:
 #    container_name: dim-processor
