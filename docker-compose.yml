@@ -74,11 +74,14 @@ services:
         condition: service_healthy
 
     volumes:
+      - "./ash:/ash/ash"
       - "/var/run/docker.sock:/var/run/docker.sock"
 
     environment:
       - "AYON_API_KEY=${AYON_API_KEY}"
       - "AYON_SERVER_URL=${AYON_SERVER_URL}"
+      - "GHCR_TOKEN=${GHCR_TOKEN}"
+      - "GHCR_USERNAME=${GHCR_USERNAME}"
 
 
 
