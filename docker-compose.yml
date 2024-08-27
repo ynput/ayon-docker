@@ -83,6 +83,8 @@ services:
       - "GHCR_TOKEN=${GHCR_TOKEN}"
       - "GHCR_USERNAME=${GHCR_USERNAME}"
 
+    command: "python -m ash"
+
 
 
 #  processor:
