@@ -83,6 +83,11 @@ services:
       - "GHCR_TOKEN=${GHCR_TOKEN}"
       - "GHCR_USERNAME=${GHCR_USERNAME}"
 
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "udp://localhost:514"
+
     command: "python -m ash"
 
 
