@@ -67,7 +67,7 @@ services:
 
   worker:
     hostname: ash_worker_01
-    image: ghcr.io/dimension-studio/ash:latest
+    image: ghcr.io/dimension-studio/ayon-ash:latest
     restart: unless-stopped
     depends_on:
       server:
