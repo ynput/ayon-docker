@@ -73,16 +73,6 @@ services:
       server:
         condition: service_healthy
 
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-
-    environment:
-      - "AYON_API_KEY=${AYON_API_KEY}"
-      - "AYON_SERVER_URL=${AYON_SERVER_URL}"
-      - "GHCR_TOKEN=${GHCR_TOKEN}"
-      - "GHCR_USERNAME=${GHCR_USERNAME}"
-
-
 
 #  processor:
 #    container_name: dim-processor
