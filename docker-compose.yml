@@ -65,30 +65,30 @@ services:
       # uncomment the following line if you need to work on the backend code
       # - "./backend:/backend"
 
-  worker:
-    hostname: ash_worker_01
-    image: ghcr.io/dimension-studio/ayon-ash:latest
-    restart: unless-stopped
-    depends_on:
-      server:
-        condition: service_healthy
-
-    volumes:
-      - "./ash:/ash/ash"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-
-    environment:
-      - "AYON_API_KEY=${AYON_API_KEY}"
-      - "AYON_SERVER_URL=${AYON_SERVER_URL}"
-      - "GHCR_TOKEN=${GHCR_TOKEN}"
-      - "GHCR_USERNAME=${GHCR_USERNAME}"
-
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "udp://localhost:514"
-
-    command: "python -m ash"
+#  worker:
+#    hostname: ash_worker_01
+#    image: ghcr.io/dimension-studio/ayon-ash:latest
+#    restart: unless-stopped
+#    depends_on:
+#      server:
+#        condition: service_healthy
+#
+#    volumes:
+#      - "./ash:/ash/ash"
+#      - "/var/run/docker.sock:/var/run/docker.sock"
+#
+#    environment:
+#      - "AYON_API_KEY=${AYON_API_KEY}"
+#      - "AYON_SERVER_URL=${AYON_SERVER_URL}"
+#      - "GHCR_TOKEN=${GHCR_TOKEN}"
+#      - "GHCR_USERNAME=${GHCR_USERNAME}"
+#
+#    logging:
+#      driver: syslog
+#      options:
+#        syslog-address: "udp://localhost:514"
+#
+#    command: "python -m ash"
 
 
 
