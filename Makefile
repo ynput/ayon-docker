@@ -142,4 +142,6 @@ build: backend frontend relinfo
 
 dist: build
 	@#dist to ghcr.io
+	VERSION := $(shell cd backend && python -c "from ayon_server import __version__; print(__version__)")
 	docker push $(IMAGE_NAME):$(VERSION)
+	docker push $(IMAGE_NAME):$(TAG)
