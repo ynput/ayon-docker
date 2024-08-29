@@ -128,7 +128,7 @@ frontend:
 	@cd $@ && git pull
 
 relinfo:
-	echo version=$(shell cd backend && python -c "from ayon_server import __version__; print(__version__)") > RELEASE
+	echo VERSION=$(shell cd backend && python -c "from ayon_server import __version__; print(__version__)") > RELEASE
 	echo build_date=$(shell date +%Y%m%d) >> RELEASE
 	echo build_time=$(shell date +%H%M) >> RELEASE
 	echo frontend_branch=$(shell cd frontend && git branch --show-current) >> RELEASE
