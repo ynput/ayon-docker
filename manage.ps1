@@ -8,7 +8,7 @@ if ($ARGS.Length -gt 1) {
 $SCRIPT_DIR = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 Set-Location "$($SCRIPT_DIR)"
 $SETTINGS_FILE = "settings/template.json"
-$IMAGE_NAME = "ynput/ayon"
+$IMAGE_NAME = "ghcr.io/dimension-studio/dim-ayon"
 $DEFAULT_IMAGE = "$($IMAGE_NAME):latest"
 $SERVER_CONTAINER = "server"
 
@@ -81,6 +81,7 @@ function relinfo {
   $backend_dir = "$($SCRIPT_DIR)\backend"
   $frontend_dir = "$($SCRIPT_DIR)\frontend"
   $output_file = "$($SCRIPT_DIR)\RELEASE"
+  Write-Host "Made it here"
 
   $cur_date = Get-Date
 
@@ -129,14 +130,14 @@ function dist {
 function backend {
   & git -C "$($SCRIPT_DIR)/backend" pull
   if ($lastexitCode) {
-    & git clone https://github.com/pypeclub/ayon-backend "$($SCRIPT_DIR)/backend"
+    & git clone https://github.com/Dimension-studio/ayon-backend "$($SCRIPT_DIR)/backend"
   }
 }
 
 function frontend {
   & git -C "$($SCRIPT_DIR)/frontend" pull
   if ($lastexitCode) {
-    & git clone https://github.com/pypeclub/ayon-frontend "$($SCRIPT_DIR)/frontend"
+    & git clone https://github.com/Dimension-studio/ayon-frontend "$($SCRIPT_DIR)/frontend"
   }
 }
 

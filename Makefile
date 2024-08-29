@@ -3,7 +3,7 @@
 #
 
 SETTINGS_FILE=settings/template.json
-IMAGE_NAME=ynput/ayon
+IMAGE_NAME=ghcr.io/dimension-studio/dim-ayon
 SERVER_CONTAINER=server
 TAG=latest
 
@@ -119,12 +119,12 @@ restore:
 
 backend:
 	@# Clone / update the backend repository
-	@[ -d $@ ] || git clone https://github.com/ynput/ayon-backend $@
+	@[ -d $@ ] || git clone https://github.com/Dimension-studio/ayon-backend $@
 	@cd $@ && git pull
 
 frontend:
 	@# Clone / update the frontend repository
-	@[ -d $@ ] || git clone https://github.com/ynput/ayon-frontend $@
+	@[ -d $@ ] || git clone https://github.com/Dimension-studio/ayon-frontend $@
 	@cd $@ && git pull
 
 relinfo:
