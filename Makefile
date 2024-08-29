@@ -140,3 +140,6 @@ build: backend frontend relinfo
 	@# Build the docker image
 	docker build -t $(IMAGE_NAME):$(TAG) .
 
+dist: build
+	@#dist to ghcr.io
+	docker push $(IMAGE_NAME):$(VERSION)
