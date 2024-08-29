@@ -139,7 +139,7 @@ relinfo:
 
 build: backend frontend relinfo
 	@# Build the docker image
-	docker build -t $(IMAGE_NAME):$(TAG) .
+	docker build -t $(IMAGE_NAME):$(TAG) -t $(IMAGE_NAME):$(VERSION) .
 
 dist: build
 	@#dist to ghcr.io
