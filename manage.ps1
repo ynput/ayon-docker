@@ -147,7 +147,7 @@ function dump {
     exit 1
   }
 
-
+  Write-Host "Dumping project '$projectname'"
   $dumpFile = "dump.$projectname.sql"
   "DROP SCHEMA IF EXISTS project_$projectname CASCADE;" | Out-File -FilePath $dumpFile -Encoding utf8
   "DELETE FROM public.projects WHERE name = '$projectname';" | Out-File -FilePath $dumpFile -Append -Encoding utf8
