@@ -148,28 +148,24 @@ function dump {
   }
 
   Write-Host "Dumping project '$projectname'"
-  $finalfile = "dump.$projectname.sql"
-  $dumpfile = $finalfile + ".tmp"
+  $dumpFile = "dump.$projectname.sql"
+  "DROP SCHEMA IF EXISTS project_$projectname CASCADE;" | Out-File -FilePath $dumpFile -Encoding utf8
+  "DELETE FROM public.projects WHERE name = '$projectname';" | Out-File -FilePath $dumpFile -Append -Encoding utf8
 
-  # Create the file if it doesn't exist.
-  if (Test-Path $dumpfile) {
-      Remove-Item $dumpfile
+  # Project data dump (table public.projects)
+  docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon |
+      Select-String -Pattern "^INSERT INTO" |
+      Select-String -Pattern "'$projectname'" |
+      ForEach-Object { $_.Line } | Out-File -FilePath $dumpFile -Append -Encoding utf8
+
+  # Get all product types on a project
+  $types = docker compose exec postgres psql -U ayon ayon -Atc "SELECT DISTINCT(product_type) from project_$projectname.products;"
+  foreach ($product_type in $types) {
+      "INSERT INTO public.product_types (name) VALUES ('$product_type') ON CONFLICT DO NOTHING;" | Out-File -FilePath $dumpFile -Append -Encoding utf8
   }
-  New-Item $dumpfile -Force
 
-  # Write the DROP SCHEMA statement to the file.
-  echo "DROP SCHEMA IF EXISTS project_$projectname CASCADE;" >> $dumpfile
-
-  # Write the DELETE statement to the file.
-  echo "DELETE FROM public.projects WHERE name = '$projectname';" >> $dumpfile
-
-  # Get the list of tables in the project schema.
-  docker compose exec -t postgres pg_dump --table=public.projects --column-inserts ayon -U ayon | Out-String -Stream | Select-String -Pattern "^INSERT INTO" -AllMatches | Select-String -Pattern "'$($projectname)'" -AllMatches >> $dumpfile
-  docker compose exec postgres psql -U ayon ayon -Atc "SELECT DISTINCT(product_type) from project_$($projectname).products;" | ForEach-Object { "INSERT INTO public.product_types (name) VALUES ('$($_)') ON CONFLICT DO NOTHING;" >> $dumpfile }
-  docker compose exec postgres pg_dump --schema=project_$($projectname) ayon -U ayon >> $dumpfile
-  # Enforce UTF8 even for Powershell on Windows
-  Get-Content $dumpfile | Set-Content -Encoding utf8 $finalfile
-  Remove-Item $dumpfile
+  # Project schema dump
+  docker compose exec postgres pg_dump --schema=project_$projectname ayon -U ayon | Out-File -FilePath $dumpFile -Append -Encoding utf8
 }
 
 function restore {
