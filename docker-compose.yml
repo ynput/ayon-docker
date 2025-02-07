@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
   postgres:
     image: postgres:15
@@ -47,10 +45,6 @@ services:
         condition: service_healthy
       redis:
         condition: service_started
-    # uncomment for older versions of Docker (>4.0.0) and comment out above "depends on" section.
-    #depends_on:
-      #- postgres
-      #- redis
 
     expose: [5000]
     ports: ["5000:5000"]
