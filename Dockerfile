@@ -77,6 +77,7 @@ RUN apt-get update && \
   apt-get install -y --no-install-recommends \
     libgnutls-openssl27 \
     postgresql-client \
+    curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
