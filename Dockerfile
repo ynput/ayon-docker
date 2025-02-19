@@ -51,7 +51,7 @@ FROM node:20 AS build-frontend
 
 WORKDIR /frontend
 
-COPY ./frontend/package.json /frontend/package.json
+COPY ./frontend/package.json ./frontend/yarn.lock .
 RUN yarn install
 
 COPY ./frontend/index.html /frontend/index.html
@@ -75,9 +75,10 @@ ENV PYTHONBUFFERED=1
 
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
+    curl \
     libgnutls-openssl27 \
     postgresql-client \
-    curl \
+    procps \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
