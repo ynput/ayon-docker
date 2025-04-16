@@ -2,26 +2,29 @@
 # Settings
 #
 
-SETTINGS_FILE=settings/template.json
-IMAGE_NAME=ynput/ayon
-SERVER_CONTAINER=server
-TAG=latest
+ifneq (,$(wildcard ./.env))
+    include .env
+    export
+endif
+
+# Use .env file to set the following configuration variables
+
+AYON_STACK_SETTINGS_FILE ?= settings/template.json
+AYON_STACK_SERVER_NAME ?= ynput/ayon
+AYON_STACK_SERVER_TAG ?= latest
 
 #
 # Variables
 #
 
-# Abstract the 'docker compose' / 'docker-compose' command
-COMPOSE=$(shell which docker-compose || echo "docker compose")
-
-# Shortcut for the setup command
-SETUP_CMD=$(COMPOSE) exec -T $(SERVER_CONTAINER) python -m setup
+SERVER_CONTAINER=server
+SETUP_CMD=docker compose exec -T $(SERVER_CONTAINER) python -m setup
 
 # By default, just show the usage message
 
 default:
 	@echo ""
-	@echo "Ayon server $(TAG)"
+	@echo "Ayon server $(AYON_STACK_SERVER_TAG)"
 	@echo ""
 	@echo "Usage: make [target]"
 	@echo ""
@@ -48,27 +51,27 @@ default:
 
 setup:
 ifneq (,"$(wildcard ./settings/template.json)")
-	$(SETUP_CMD) - < $(SETTINGS_FILE)
+	$(SETUP_CMD) - < $(AYON_STACK_SETTINGS_FILE)
 else
 	$(SETUP_CMD)
 endif
-	@$(COMPOSE) exec $(SERVER_CONTAINER) ./reload.sh
+	@docker compose exec $(SERVER_CONTAINER) ./reload.sh
 
 dbshell:
-	@$(COMPOSE) exec postgres psql -U ayon ayon
+	@docker compose exec postgres psql -U ayon ayon
 
 reload:
-	@$(COMPOSE) exec $(SERVER_CONTAINER) ./reload.sh
+	@docker compose exec $(SERVER_CONTAINER) ./reload.sh
 
 demo:
-	$(foreach file, $(wildcard demo/*.json), $(COMPOSE) exec -T $(SERVER_CONTAINER) python -m demogen < $(file);)
+	$(foreach file, $(wildcard demo/*.json), docker compose exec -T $(SERVER_CONTAINER) python -m demogen < $(file);)
 
 links:
-	$(foreach file, $(wildcard demo/*.json), $(COMPOSE) exec -T $(SERVER_CONTAINER) python -m linker < $(file);)
+	$(foreach file, $(wildcard demo/*.json), docker compose exec -T $(SERVER_CONTAINER) python -m linker < $(file);)
 
 update:
-	docker pull $(IMAGE_NAME):$(TAG)
-	$(COMPOSE) up --detach --build $(SERVER_CONTAINER)
+	docker pull $(AYON_STACK_SERVER_NAME):$(AYON_STACK_SERVER_TAG)
+	docker compose up --detach --build $(SERVER_CONTAINER)
 
 dump:
 	@if [ -z "$(projectname)" ]; then \
@@ -138,5 +141,5 @@ relinfo:
 
 build: backend frontend relinfo
 	@# Build the docker image
-	docker build -t $(IMAGE_NAME):$(TAG) .
+	docker build -t $(AYON_STACK_SERVER_NAME):$(AYON_STACK_SERVER_TAG) .
 
