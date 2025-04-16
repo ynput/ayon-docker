@@ -47,22 +47,25 @@ RUN ./configure \
 # Build frontend
 #
 
-FROM node:20 AS build-frontend
+FROM node:22 AS build-frontend
 
 WORKDIR /frontend
 
+COPY ./frontend/public .
+COPY \
+  ./frontend/index.html \
+  ./frontend/tsconfig.node.json \
+  ./frontend/tsconfig.json \
+  ./frontend/vite.config.ts \
+  .
 COPY ./frontend/package.json ./frontend/yarn.lock .
+
 RUN yarn install
 
-COPY ./frontend/index.html /frontend/index.html
-COPY ./frontend/public /frontend/public
-COPY ./frontend/vite.config.* /frontend/
-COPY ./frontend/tsconfig.json /frontend/
-COPY ./frontend/tsconfig.node.json /frontend/
+COPY ./frontend/share[d] /frontend/shared
 COPY ./frontend/src /frontend/src
 
 RUN yarn build
-
 
 #
 # Main container
