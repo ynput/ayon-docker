@@ -51,7 +51,6 @@ FROM node:22 AS build-frontend
 
 WORKDIR /frontend
 
-COPY ./frontend/public .
 COPY \
   ./frontend/index.html \
   ./frontend/tsconfig.node.json \
@@ -62,6 +61,7 @@ COPY ./frontend/package.json ./frontend/yarn.lock .
 
 RUN yarn install
 
+COPY ./frontend/public /frontend/public
 COPY ./frontend/share[d] /frontend/shared
 COPY ./frontend/src /frontend/src
 
