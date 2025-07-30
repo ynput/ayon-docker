@@ -129,14 +129,14 @@ function dist {
 function backend {
   & git -C "$($SCRIPT_DIR)/backend" pull
   if ($lastexitCode) {
-    & git clone https://github.com/pypeclub/ayon-backend "$($SCRIPT_DIR)/backend"
+    & git clone https://github.com/ynput/ayon-backend "$($SCRIPT_DIR)/backend"
   }
 }
 
 function frontend {
   & git -C "$($SCRIPT_DIR)/frontend" pull
   if ($lastexitCode) {
-    & git clone https://github.com/pypeclub/ayon-frontend "$($SCRIPT_DIR)/frontend"
+    & git clone https://github.com/ynput/ayon-frontend "$($SCRIPT_DIR)/frontend"
   }
 }
 
