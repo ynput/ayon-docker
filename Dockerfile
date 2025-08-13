@@ -1,4 +1,4 @@
-FROM python:3.11-slim AS build-ffmpeg
+FROM python:3.11-slim-bookworm AS build-ffmpeg
 ENV FFMPEG_VERSION=7.1
 
 RUN apt-get update && apt-get install -y \
@@ -71,8 +71,8 @@ RUN yarn build
 # Main container
 #
 
-FROM python:3.11-slim
-ENV PYTHONBUFFERED=1
+FROM python:3.11-slim-bookworm
+ENV PYTHONUNBUFFERED=1
 
 # Debian packages
 
@@ -98,12 +98,12 @@ COPY ./backend/static /backend/static
 COPY ./backend/start.sh /backend/start.sh
 COPY ./backend/reload.sh /backend/reload.sh
 COPY ./backend/nxtool[s] /backend/nxtools
+COPY ./backend/cl[i] /backend/cli
 COPY ./backend/demogen /backend/demogen
 COPY ./backend/linker /backend/linker
 COPY ./backend/setup /backend/setup
 COPY ./backend/aycli /usr/bin/ay
 COPY ./backend/maintenance /backend/maintenance
-
 COPY ./backend/schemas /backend/schemas
 COPY ./backend/ayon_server /backend/ayon_server
 COPY ./backend/api /backend/api
