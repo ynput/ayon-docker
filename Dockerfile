@@ -103,6 +103,7 @@ COPY ./backend/demogen /backend/demogen
 COPY ./backend/linker /backend/linker
 COPY ./backend/setup /backend/setup
 COPY ./backend/aycli /usr/bin/ay
+COPY ./backend/dbshell /usr/bin/dbshell
 COPY ./backend/maintenance /backend/maintenance
 COPY ./backend/schemas /backend/schemas
 COPY ./backend/ayon_server /backend/ayon_server
