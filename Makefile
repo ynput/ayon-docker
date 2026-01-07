@@ -38,7 +38,7 @@ default:
 	@echo "  demo      Create demo projects based on settings in demo directory"
 	@echo "  dump      Use 'make dump projectname=<projectname>' to backup a project"
 	@echo "  restore   Use 'make restore projectname=<projectname>' to restore a project from previous dump"
-	@echo "  dump-entire      Use 'make dump-entire targetname=<targetname>' to backup the entire database, targetname is optional, no targetname uses 'backup_TIMESTAMP.sql', '_TIMESTAMP.sql' is always appended, targetname=test == test_TIMESTAMP.sql"
+	@echo "  dump-entire      Use 'make dump-entire targetname=<targetname>' to backup the entire database, targetname is optional, no targetname uses 'backup_TIMESTAMP.sql', '_TIMESTAMP.sql' is always appended, targetname=test.sql == test_TIMESTAMP.sql"
 	@echo "  restore-entire      Use 'make restore-entire targetfilename=<targetfilename>' to restore the entire database"
 	@echo ""
 	@echo "Development:"
@@ -121,7 +121,8 @@ restore:
 
 dump-entire:
 	$(eval TIMESTAMP := $(shell date +%y%m%d%H%M))
-	$(eval TARGET := $(if $(targetname),$(targetname)_$(TIMESTAMP).sql,backup_$(TIMESTAMP).sql))
+	$(eval CLEAN_NAME := $(if $(targetname),$(patsubst %.sql,%,$(targetname)),backup))
+	$(eval TARGET := $(CLEAN_NAME)_$(TIMESTAMP).sql)
 	@echo "Dumping entire database to $(TARGET)..."
 	@docker compose exec -e PGPASSWORD=$(POSTGRES_PASSWORD) -T postgres pg_dump -U $(POSTGRES_USER) -d $(POSTGRES_DB) > $(TARGET)
 	@echo "Done."
