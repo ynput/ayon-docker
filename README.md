@@ -16,7 +16,7 @@ Installation
 You can use the provided `docker-compose.yml` as a template to start your own deployment.
 
 For more information on installation and user guides, 
-please visit our [documentation website](https://ayon.ynput.io/docs/system_introduction).
+please visit our [documentation website](https://help.ayon.app/en/help/articles/2293963-ayon-server-local-deployment).
 
 ### Demo projects
 
