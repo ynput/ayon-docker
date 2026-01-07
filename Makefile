@@ -38,7 +38,7 @@ default:
 	@echo "  demo      Create demo projects based on settings in demo directory"
 	@echo "  dump      Use 'make dump projectname=<projectname>' to backup a project"
 	@echo "  restore   Use 'make restore projectname=<projectname>' to restore a project from previous dump"
-	@echo "  dump-entire      Use 'make dump-entire' to backup the entire database"
+	@echo "  dump-entire      Use 'make dump-entire targetname=<targetname>' to backup the entire database, targetname is optional, no targetname uses 'backup_TIMESTAMP.sql', '_TIMESTAMP.sql' is always appended, targetname=test == test_TIMESTAMP.sql"
 	@echo "  restore-entire      Use 'make restore-entire targetfilename=<targetfilename>' to restore the entire database"
 	@echo ""
 	@echo "Development:"
@@ -121,7 +121,7 @@ restore:
 
 dump-entire:
 	$(eval TIMESTAMP := $(shell date +%y%m%d%H%M))
-	$(eval TARGET := $(if $(targetfilename),$(targetfilename),backup_$(TIMESTAMP).sql))
+	$(eval TARGET := $(if $(targetname),$(targetname)_$(TIMESTAMP).sql,backup_$(TIMESTAMP).sql))
 	@echo "Dumping entire database to $(TARGET)..."
 	@docker compose exec -e PGPASSWORD=$(POSTGRES_PASSWORD) -T postgres pg_dump -U $(POSTGRES_USER) -d $(POSTGRES_DB) > $(TARGET)
 	@echo "Done."
@@ -153,10 +153,10 @@ frontend:
 	@cd $@ && git pull
 
 relinfo:
-	@echo version=$(shell cd backend && python -c "from ayon_server import __version__; print(__version__)") > RELEASE
-	@echo build_date=$(shell date +%Y%m%d) >> RELEASE
-	@echo build_time=$(shell date +%H%M) >> RELEASE
-	@echo frontend_branch=$(shell cd frontend && git branch --show-current) >> RELEASE
+	echo version=$(shell cd backend && python -c "from ayon_server import __version__; print(__version__)") > RELEASE
+	echo build_date=$(shell date +%Y%m%d) >> RELEASE
+	echo build_time=$(shell date +%H%M) >> RELEASE
+	echo frontend_branch=$(shell cd frontend && git branch --show-current) >> RELEASE
 	echo backend_branch=$(shell cd backend && git branch --show-current) >> RELEASE
 	echo frontend_commit=$(shell cd frontend && git rev-parse --short HEAD) >> RELEASE
 	echo backend_commit=$(shell cd backend && git rev-parse --short HEAD) >> RELEASE
