@@ -120,20 +120,18 @@ function dump {
 
   Write-Host "Dumping project '$projectname'"
   $dumpFile = "dump.$projectname.sql"
-
-  # Header schreiben (UTF8 ohne BOM)
   "DROP SCHEMA IF EXISTS project_$projectname CASCADE;" | Out-File -FilePath $dumpFile -Encoding utf8
   "DELETE FROM public.projects WHERE name = '$projectname';" | Out-File -FilePath $dumpFile -Append -Encoding utf8
 
   $env:PGPASSWORD = $POSTGRES_PASSWORD
 
-  # Project data dump
+  # Project data dump (table public.projects)
   & "$($COMPOSE)" exec -T postgres pg_dump --table=public.projects --column-inserts -U $POSTGRES_USER -d $POSTGRES_DB |
       Select-String -Pattern "^INSERT INTO" |
       Select-String -Pattern "'$projectname'" |
       ForEach-Object { $_.Line } | Out-File -FilePath $dumpFile -Append -Encoding utf8
 
-  # Get product types
+  # Get all product types on a project
   $types = & "$($COMPOSE)" exec -T postgres psql -U $POSTGRES_USER -d $POSTGRES_DB -Atc "SELECT DISTINCT(product_type) from project_$projectname.products;"
   foreach ($product_type in $types) {
       if ($product_type.Trim()) {
@@ -156,11 +154,14 @@ function restore {
   }
 
   $dumpfile = "dump.$projectname.sql"
+
+  # Check if the dump file exists.
   if (-not (Test-Path $dumpfile)) {
     Write-Error "Error: Dump file $dumpfile not found"
     exit 1
   }
 
+  # Restore the database from the dump file.
   $env:PGPASSWORD = $POSTGRES_PASSWORD
   Get-Content $dumpfile | & "$($COMPOSE)" exec -T postgres psql -U $POSTGRES_USER -d $POSTGRES_DB
   $env:PGPASSWORD = $null
