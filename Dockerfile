@@ -1,4 +1,4 @@
-FROM python:3.11-slim-bookworm AS build-ffmpeg
+FROM python:3.13-slim-trixie AS build-ffmpeg
 ENV FFMPEG_VERSION=7.1
 
 RUN apt-get update && apt-get install -y \
@@ -47,7 +47,7 @@ RUN ./configure \
 # Build frontend
 #
 
-FROM node:22 AS build-frontend
+FROM node:24 AS build-frontend
 
 WORKDIR /frontend
 
@@ -62,7 +62,7 @@ COPY ./frontend/package.json ./frontend/yarn.lock .
 RUN yarn install
 
 COPY ./frontend/public /frontend/public
-COPY ./frontend/share[d] /frontend/shared
+COPY ./frontend/shared /frontend/shared
 COPY ./frontend/src /frontend/src
 
 RUN yarn build
@@ -71,7 +71,7 @@ RUN yarn build
 # Main container
 #
 
-FROM python:3.11-slim-bookworm
+FROM python:3.13-slim-trixie
 ENV PYTHONUNBUFFERED=1
 
 # Debian packages
