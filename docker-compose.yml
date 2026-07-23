@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:${AYON_STACK_POSTGRES_TAG:-15}
+    image: postgres:${AYON_STACK_POSTGRES_TAG:-17}
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ayon"]
