@@ -32,7 +32,6 @@ default:
 	@echo "  setup     Apply settings template form the settings/template.json"
 	@echo "  dbshell   Open a PostgreSQL shell"
 	@echo "  reload    Reload the running server"
-	@echo "  demo      Create demo projects based on settings in demo directory"
 	@echo "  dump      Use 'make dump projectname=<projectname>' to backup a project"
 	@echo "  restore   Use 'make restore projectname=<projectname>' to restore a project from previous dump"
 	@echo ""
@@ -62,12 +61,6 @@ dbshell:
 
 reload:
 	@docker compose exec $(SERVER_CONTAINER) ./reload.sh
-
-demo:
-	$(foreach file, $(wildcard demo/*.json), docker compose exec -T $(SERVER_CONTAINER) python -m demogen < $(file);)
-
-links:
-	$(foreach file, $(wildcard demo/*.json), docker compose exec -T $(SERVER_CONTAINER) python -m linker < $(file);)
 
 update:
 	docker pull $(AYON_STACK_SERVER_NAME):$(AYON_STACK_SERVER_TAG)
