@@ -17,19 +17,3 @@ You can use the provided `docker-compose.yml` as a template to start your own de
 
 For more information on installation and user guides, 
 please visit our [documentation website](https://help.ayon.app/en/help/articles/2293963-ayon-server-local-deployment).
-
-### Demo projects
-
-To help you get familiar with the interface, the `demo/` directory includes three demo project templates:
-
-- `demo_Commercial`
-- `demo_Big_Episodic`
-- `demo_Big_Feature`
-
-To deploy these demo projects to your server, run:
-
-- `make demo` on Unix systems
-- `manage.ps1` demo on Windows
-
-*NOTE: These demo projects can take a while to create.*
-
