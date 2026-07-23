@@ -97,10 +97,8 @@ RUN --mount=from=ghcr.io/astral-sh/uv,source=/uv,target=/bin/uv \
 COPY ./backend/static /backend/static
 COPY ./backend/start.sh /backend/start.sh
 COPY ./backend/reload.sh /backend/reload.sh
-COPY ./backend/nxtool[s] /backend/nxtools
-COPY ./backend/cl[i] /backend/cli
-COPY ./backend/demogen /backend/demogen
-COPY ./backend/linker /backend/linker
+COPY ./backend/nxtools /backend/nxtools
+COPY ./backend/cli /backend/cli
 COPY ./backend/setup /backend/setup
 COPY ./backend/aycli /usr/bin/ay
 COPY ./backend/dbshell /usr/bin/dbshell
