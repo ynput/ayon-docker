@@ -13,5 +13,5 @@ services:
      - "/var/run/docker.sock:/var/run/docker.sock"
 
     environment:
-      - "AYON_API_KEY=${AYON_API_KEY-veryinsecurapikey}"
-      - "AYON_SERVER_URL=${AYON_SERVER_URL-http://server:5000}"
+      - "AYON_API_KEY=${AYON_API_KEY:-veryinsecurapikey}"
+      - "AYON_SERVER_URL=${AYON_SERVER_URL:-http://server:5000}"
