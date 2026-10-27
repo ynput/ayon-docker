@@ -135,6 +135,7 @@ COPY ./backend/static /backend/static
 COPY ./backend/start.sh /backend/start.sh
 COPY ./backend/reload.sh /backend/reload.sh
 COPY ./backend/cli /backend/cli
+COPY ./backend/nxtool[s] /backend/nxtools
 COPY ./backend/setup /backend/setup
 COPY ./backend/aycli /usr/bin/ay
 COPY ./backend/dbshell /usr/bin/dbshell
