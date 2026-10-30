@@ -71,7 +71,8 @@ COPY ./frontend/package.json ./frontend/yarn.lock .
 RUN yarn install
 
 COPY ./frontend/public /frontend/public
-COPY ./frontend/vite-plugin[s]/ /frontend/vite-plugins/
+COPY ./frontend/vite-plugin[s] /frontend/vite-plugins
+COPY ./frontend/addo[n] /frontend/addon
 COPY ./frontend/shared /frontend/shared
 COPY ./frontend/src /frontend/src
 
