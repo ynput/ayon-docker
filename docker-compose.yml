@@ -54,7 +54,6 @@ services:
       - "./addons:/addons"
       - "./storage:/storage"
 
-      # comment out the following line on Windows
       - "/etc/localtime:/etc/localtime:ro"
 
       # uncomment the following line if you need to work on the backend code
