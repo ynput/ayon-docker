@@ -17,9 +17,6 @@ $SERVER_CONTAINER = "server"
 # TODO: tag needs to be set to the current version. TBD.
 $TAG = (git describe --tags --always --dirty)
 
-# Abstract the 'docker compose' / 'docker-compose' command
-$COMPOSE = "docker-compose"
-
 # By default, just show the usage message
 function defaultfunc {
   Write-Host ""
@@ -51,30 +48,30 @@ function defaultfunc {
 function setup {
     Write-Host "Server container: $($SERVER_CONTAINER)"
   if (!(Test-Path "$($SCRIPT_DIR)/settings/template.json")) {
-    & "$($COMPOSE)" exec -T "$($SERVER_CONTAINER)" python -m setup
+    docker compose exec -T "$($SERVER_CONTAINER)" python -m setup
   } else {
-    Get-Content "$($SCRIPT_DIR)/settings/template.json" | & "$($COMPOSE)" exec -T "$($SERVER_CONTAINER)" python -m setup -
+    Get-Content "$($SCRIPT_DIR)/settings/template.json" | docker compose exec -T "$($SERVER_CONTAINER)" python -m setup -
   }
-  & "$($COMPOSE)" exec "$($SERVER_CONTAINER)" bash "/backend/reload.sh"
+  docker compose exec "$($SERVER_CONTAINER)" bash "/backend/reload.sh"
 }
 
 function dbshell {
-  & "$($COMPOSE)" exec postgres psql -U ayon ayon
+  docker compose exec postgres psql -U ayon ayon
 }
 
 function reload {
-  & "$($COMPOSE)" exec "$($SERVER_CONTAINER)" bash "/backend/reload.sh"
+  docker compose exec "$($SERVER_CONTAINER)" bash "/backend/reload.sh"
 }
 
 function demo {
   foreach ($file in (Get-ChildItem "demo/*.json")) {
-    Get-Content "$($file.FullName)" | & "$($COMPOSE)" exec -T "$($SERVER_CONTAINER)" python -m demogen
+    Get-Content "$($file.FullName)" | docker compose exec -T "$($SERVER_CONTAINER)" python -m demogen
   }
 }
 
 function update {
   docker pull $DEFAULT_IMAGE
-  & "$($COMPOSE)" up --detach --build "$($SERVER_CONTAINER)"
+  docker compose up --detach "$($SERVER_CONTAINER)"
 }
 
 function relinfo {
@@ -184,7 +181,7 @@ function restore {
   }
 
   # Restore the database from the dump file.
-  Get-Content $dumpfile | docker-compose exec -T postgres psql -U ayon ayon
+  Get-Content $dumpfile | docker compose exec -T postgres psql -U ayon ayon
 }
 
 function main {
