@@ -64,7 +64,7 @@ reload:
 
 update:
 	docker pull $(AYON_STACK_SERVER_NAME):$(AYON_STACK_SERVER_TAG)
-	docker compose up --detach --build $(SERVER_CONTAINER)
+	docker compose up --detach $(SERVER_CONTAINER)
 
 dump:
 	@if [ -z "$(projectname)" ]; then \
